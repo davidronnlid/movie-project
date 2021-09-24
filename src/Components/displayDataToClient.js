@@ -5,7 +5,6 @@ function DisplayDataToClient() {
   return (
     <div>
       <Data />
-      Testing git connection
     </div>
   );
 }
