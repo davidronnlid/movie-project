@@ -1,22 +1,20 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { PostAuthor } from './PostAuthor'
-import { TimeAgo } from './TimeAgo'
-import { ReactionButtons } from './ReactionButtons'
 import { selectAllPosts, fetchPosts } from './postsSlice'
 import { Spinner } from '../../components/Spinner'
 
 const PostExcerpt = ({ post }) => {
   return (
-    <article className="post-excerpt" key={post.id}>
-      <h3>{post.title}</h3>
-      <PostAuthor userId={post.user} />
-      <TimeAgo timestamp={post.date} />
-      <p className="post-content">{post.content.substring(0, 100)}</p>
-      (Reactions are still under development.) <ReactionButtons post={post} />
-      <Link to={`/posts/${post.id}`} className="button muted-button">
-        View Post
+    <article className="post-excerpt" key={post.imdbID}>
+      <h3>
+        {post.Title} by {post.Director}
+      </h3>
+      <h5>{post.Runtime}</h5>
+      {post.Director}
+      <br />
+      <Link to={`/posts/${post.imdbID}`} className="button muted-button">
+        View more details
       </Link>
     </article>
   )
@@ -46,7 +44,7 @@ export const PostsList = () => {
       .sort((a, b) => b.date.localeCompare(a.date))
 
     content = orderedPosts.map((post) => (
-      <PostExcerpt key={post.id} post={post} />
+      <PostExcerpt key={post.imdbID} post={post} />
     ))
   } else if (postStatus === 'failed') {
     content = <div>{error}</div>
