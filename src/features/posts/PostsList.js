@@ -35,10 +35,6 @@ export const PostsList = () => {
     }
   }, [postStatus, dispatch])
 
-  const orderedPosts = posts
-    .slice()
-    .sort((a, b) => b.date.localeCompare(a.date))
-
   let content
 
   if (postStatus === 'loading') {
