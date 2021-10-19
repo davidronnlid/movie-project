@@ -21,14 +21,11 @@ function App() {
             path="/"
             render={() => (
               <React.Fragment>
-                {/* <AddPostForm /> */}
                 <PostsList />
               </React.Fragment>
             )}
           />
           <Route exact path="/posts/:postId" component={SinglePostPage} />
-          {/* <Route exact path="/editPost/:postId" component={EditPostForm} /> */}
-
           <Redirect to="/" />
         </Switch>
       </div>

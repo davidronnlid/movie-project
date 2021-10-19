@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const response = await axios.get(
-    'http://www.omdbapi.com/?i=tt3896198&apikey=81c55880'
+    `https://api.themoviedb.org/3/discover/movie?api_key=337b39ef734161217d4dcb48cef14cb9`
   )
   return response.data
 })
@@ -40,4 +40,4 @@ export default postsSlice.reducer
 export const selectAllPosts = (state) => state.posts.posts
 
 export const selectPostById = (state, postId) =>
-  state.posts.posts.find((post) => post.imdbID === postId)
+  state.posts.posts.find((post) => post.imdb_id === postId)

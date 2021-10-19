@@ -6,14 +6,11 @@ import { Spinner } from '../../components/Spinner'
 
 const PostExcerpt = ({ post }) => {
   return (
-    <article className="post-excerpt" key={post.imdbID}>
-      <h3>
-        {post.Title} by {post.Director}
-      </h3>
-      <h5>{post.Runtime}</h5>
-      {post.Director}
+    <article className="post-excerpt" key={post.imdb_id}>
+      <h3>{post.title}</h3>
+      <h5>{post.runtime}</h5>
       <br />
-      <Link to={`/posts/${post.imdbID}`} className="button muted-button">
+      <Link to={`/posts/${post.imdb_id}`} className="button muted-button">
         View more details
       </Link>
     </article>
@@ -44,15 +41,15 @@ export const PostsList = () => {
       .sort((a, b) => b.date.localeCompare(a.date))
 
     content = orderedPosts.map((post) => (
-      <PostExcerpt key={post.imdbID} post={post} />
+      <PostExcerpt key={post.imdb_id} post={post} />
     ))
   } else if (postStatus === 'failed') {
-    content = <div>{error}</div>
+    content = <div>{console.log(error) && error}</div>
   }
 
   return (
     <section className="posts-list">
-      <h2>Posts</h2>
+      <h2>Movies</h2>
       {content}
     </section>
   )

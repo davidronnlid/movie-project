@@ -19,7 +19,8 @@ export const SinglePostPage = ({ match }) => {
   return (
     <section>
       <article className="post">
-        <h2>{post.Title}</h2>
+        <h2>{post.title}</h2>
+        <p>Release date: {post.release_date}</p>
       </article>
       <Link to="/">Select another movie</Link>
     </section>
