@@ -16,6 +16,7 @@
     "mock-socket": "^9.0.3",
     "msw": "^0.34.0",
     "react": "^17",
+    "react-bootstrap": "^1.6.4",
     "react-dom": "^17",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.1.2",

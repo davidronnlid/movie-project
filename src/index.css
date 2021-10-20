@@ -267,7 +267,7 @@ button:disabled:hover {
   border-radius: 5px;
 }
 
-.primaryMovieImg {
+.large-centered-rounded-img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -298,4 +298,8 @@ button:disabled:hover {
   grid-gap: 1px;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 5vw;
+}
+
+.larger-text {
+  font-size: 25px;
 }
