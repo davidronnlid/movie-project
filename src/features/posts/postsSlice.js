@@ -40,10 +40,5 @@ export default postsSlice.reducer
 
 export const selectAllPosts = (state) => state.posts.posts
 
-// export const selectPostById = (state, postId) =>
-//   state.posts.posts.find(
-//     (post) =>
-//       console.log(post.id.toString(), postId) && post.id.toString() === postId
-//   )
-
-// Make sure that this function returns an entire movie obj, not just the ID
+export const selectPostById = (state, postId) =>
+  state.posts.posts.find((post) => post.id.toString() === postId)
