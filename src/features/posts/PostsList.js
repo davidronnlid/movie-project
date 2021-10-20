@@ -41,13 +41,11 @@ export const PostsList = () => {
     content = <Spinner text="Loading..." />
   } else if (postStatus === 'succeeded') {
     // Sort posts in reverse chronological order by datetime string
-    const orderedPosts = posts
-      .slice()
-      .sort((a, b) => b.vote_average > a.vote_average)
+    // const orderedPosts = posts
+    //   .slice()
+    //   .sort((a, b) => b.vote_average > a.vote_average)
 
-    content = orderedPosts.map((post) => (
-      <PostExcerpt key={post.id} post={post} />
-    ))
+    content = posts.map((post) => <PostExcerpt key={post.id} post={post} />)
   } else if (postStatus === 'failed') {
     content = <div>{console.log(error) && error}</div>
   }
