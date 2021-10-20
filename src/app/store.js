@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import postsReducer from '../features/posts/postsSlice'
+import moviesReducer from '../features/movies/moviesSlice'
 
 export default configureStore({
   reducer: {
-    posts: postsReducer,
+    movies: moviesReducer,
   },
 })

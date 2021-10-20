@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom'
 
 import { Navbar } from './app/Navbar'
-import { PostsList } from './features/posts/PostsList'
-import { SinglePostPage } from './features/posts/SinglePostPage'
+import { MoviesList } from './features/movies/MoviesList'
+import { SingleMoviePage } from './features/movies/SingleMoviePage'
 
 function App() {
   return (
@@ -21,11 +21,11 @@ function App() {
             path="/"
             render={() => (
               <React.Fragment>
-                <PostsList />
+                <MoviesList />
               </React.Fragment>
             )}
           />
-          <Route exact path="/posts/:postId" component={SinglePostPage} />
+          <Route exact path="/movies/:movieId" component={SingleMoviePage} />
           <Redirect to="/" />
         </Switch>
       </div>
