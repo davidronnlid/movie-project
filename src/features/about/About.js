@@ -26,6 +26,7 @@ export const About = () => (
         width: '180px',
         height: '180px',
       }}
+      alt="David Rönnlid smiling confidently"
     />
     <p style={{ width: '60vw', margin: 'auto' }}>
       I created this movie selection app for two <b>reasons</b>.<br /> These are
