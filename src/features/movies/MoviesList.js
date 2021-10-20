@@ -7,17 +7,15 @@ import { Spinner } from '../../components/Spinner'
 const MovieExcerpt = ({ movie }) => {
   return (
     <article className="movie-excerpt" key={movie.id}>
-      <h3>{movie.title}</h3>
-      <h5>{movie.vote_average}</h5>
-      <h5>{movie.runtime}</h5>
-      <img
-        src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-        alt="Movie poster"
-      />
-      <br />
-      <Link to={`/movies/${movie.id}`} className="button muted-button">
-        View more details
+      <Link to={`/movies/${movie.id}`}>
+        <img
+          src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+          alt="Movie poster"
+          className="movieExcerptImg"
+        />
       </Link>
+      <br />
+      <b>{movie.title}</b>
     </article>
   )
 }
@@ -40,11 +38,6 @@ export const MoviesList = () => {
   if (movieStatus === 'loading') {
     content = <Spinner text="Loading..." />
   } else if (movieStatus === 'succeeded') {
-    // Sort movies in reverse chronological order by datetime string
-    // const orderedmovies = movies
-    //   .slice()
-    //   .sort((a, b) => b.vote_average > a.vote_average)
-
     content = movies.map((movie) => (
       <MovieExcerpt key={movie.id} movie={movie} />
     ))
@@ -55,7 +48,13 @@ export const MoviesList = () => {
   return (
     <section className="movies-list">
       <h2>Movies</h2>
-      {content}
+      <span>
+        <i>Click on a poster to see movie details.</i>
+      </span>
+      <br />
+      <br />
+
+      <div className="grid">{content}</div>
     </section>
   )
 }

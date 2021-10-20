@@ -1,5 +1,5 @@
 :root {
-  --redux-color: #764abc;
+  --dr-color: rgb(202, 255, 185);
 }
 
 body {
@@ -25,7 +25,7 @@ p {
 nav {
   display: flex;
   padding: 0;
-  background: var(--redux-color);
+  background: var(--dr-color);
 }
 
 nav section {
@@ -34,16 +34,18 @@ nav section {
 
 nav section h1,
 nav section {
-  color: white;
+  color: black;
 }
 
 nav a,
 nav a:active {
   font-weight: 700;
   padding: 0.25rem 1.5rem;
-  border-radius: 4px;
-  color: white !important;
-  background: #481499;
+  border: solid black 2px;
+  border-radius: 6px;
+  color: black !important;
+  margin-bottom: 10px;
+  /* background: rgb(109, 168, 255); */
 }
 
 nav a:first-of-type {
@@ -51,8 +53,8 @@ nav a:first-of-type {
 }
 
 nav a:hover {
-  color: white;
-  background: #926bcf;
+  color: black;
+  /* background: rgb(13, 110, 253); */
 }
 
 .navContent {
@@ -81,7 +83,6 @@ nav a:hover {
   font-weight: 700;
   line-height: 1;
   text-align: center;
-  white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25rem;
   color: #212529;
@@ -110,51 +111,28 @@ section h1 {
 .movie h2 {
   font-size: 2.5rem;
   margin-bottom: 5px;
+  color: white;
 }
 
 .movie-excerpt {
-  padding: 0.25rem 0.25rem;
+  padding: 0 0 0.15rem 0;
+  margin: 10px 10px 0 0;
   border: 1px solid rgb(177, 174, 174);
   border-radius: 7px;
-}
-
-.movies-list .movie-excerpt + .movie-excerpt {
-  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .movies-container.disabled {
   opacity: 0.5;
 }
 
-.movie-excerpt h3 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
 p.movie-content {
   margin-top: 10px;
-}
-
-.button {
-  display: inline-block;
-  background: #1976d2;
-  color: white;
-  border-radius: 4px;
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
 }
 
 button:disabled,
 button:disabled:hover {
   opacity: 0.5;
-}
-
-button.reaction-button {
-  border: 1px solid #e0e3e9;
-  padding: 5px 10px;
-  margin: 5px 6px 10px;
-  border-radius: 4px;
-  white-space: nowrap;
 }
 
 .spinner {
@@ -176,30 +154,30 @@ button.reaction-button {
   width: 5em;
   height: 5em;
   border-radius: 50%;
-  background: var(--redux-color);
+  background: var(--dr-color);
   background: -moz-linear-gradient(
     left,
-    var(--redux-color) 10%,
+    var(--dr-color) 10%,
     rgba(128, 0, 255, 0) 42%
   );
   background: -webkit-linear-gradient(
     left,
-    var(--redux-color) 10%,
+    var(--dr-color) 10%,
     rgba(128, 0, 255, 0) 42%
   );
   background: -o-linear-gradient(
     left,
-    var(--redux-color) 10%,
+    var(--dr-color) 10%,
     rgba(128, 0, 255, 0) 42%
   );
   background: -ms-linear-gradient(
     left,
-    var(--redux-color) 10%,
+    var(--dr-color) 10%,
     rgba(128, 0, 255, 0) 42%
   );
   background: linear-gradient(
     to right,
-    var(--redux-color) 10%,
+    var(--dr-color) 10%,
     rgba(128, 0, 255, 0) 42%
   );
   position: relative;
@@ -213,7 +191,7 @@ button.reaction-button {
 .loader:before {
   width: 50%;
   height: 50%;
-  background: var(--redux-color);
+  background: var(--dr-color);
   border-radius: 100% 0 0 0;
   position: absolute;
   top: 0;
@@ -270,4 +248,54 @@ button.reaction-button {
 
 .notification.new {
   background-color: rgba(29, 161, 242, 0.1);
+}
+
+.movie {
+  border: 1px solid black;
+  padding: 15px;
+  background-color: #212529;
+  color: white;
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 5vw;
+}
+
+.small-info {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.primaryMovieImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.secondaryMovieImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.movieExcerptImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-bottom: -15px;
+  border-radius: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 5vw;
 }

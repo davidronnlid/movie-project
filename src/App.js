@@ -9,6 +9,7 @@ import {
 import { Navbar } from './app/Navbar'
 import { MoviesList } from './features/movies/MoviesList'
 import { SingleMoviePage } from './features/movies/SingleMoviePage'
+import { About } from './features/about/About'
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
             )}
           />
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
+          <Route exact path="/about" component={About} />
+
           <Redirect to="/" />
         </Switch>
       </div>
