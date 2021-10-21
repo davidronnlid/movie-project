@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="App">
+      <div className="App" style={{ paddingBottom: '5vw' }}>
         <Switch>
           <Route
             exact

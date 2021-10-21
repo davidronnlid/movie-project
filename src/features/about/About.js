@@ -9,7 +9,6 @@ export const About = () => (
         project <i className="fa fa-github"></i>
       </a>
     </h2>
-
     <p>
       Hey! This is me,{' '}
       <a href="https://www.linkedin.com/in/davidronnlid/">
