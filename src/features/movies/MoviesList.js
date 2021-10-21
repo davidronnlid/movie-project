@@ -57,7 +57,9 @@ export const MoviesList = () => {
   return (
     <section className="movies-list">
       <h2>Movies</h2>
-      <button onClick={() => toggleshowMovCar()}>Carousel / List mode</button>
+      <button onClick={() => toggleshowMovCar()}>
+        Toggle carousel / list view
+      </button>
       <br />
       <span>
         <i>Click on a poster to see movie details.</i>
