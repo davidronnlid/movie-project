@@ -32,7 +32,7 @@ function Item(movie) {
         />
       </Link>{' '}
       <p style={{ marginTop: '50px', textAlign: 'center' }}>
-        <b>No. of votes:</b> {movie.movie.vote_count} <b>Vote average:</b>{' '}
+        <b>No. of ratings:</b> {movie.movie.vote_count} <b>Average rating:</b>{' '}
         {movie.movie.vote_average}
       </p>
     </Paper>

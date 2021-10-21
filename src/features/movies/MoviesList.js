@@ -43,8 +43,6 @@ export const MoviesList = () => {
   if (movieStatus === 'loading') {
     content = <Spinner text="Loading..." />
   } else if (movieStatus === 'succeeded') {
-    console.log(movies)
-
     content = movies.map((movie) => (
       <MovieExcerpt key={movie.id} movie={movie} />
     ))
