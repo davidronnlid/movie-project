@@ -20,8 +20,6 @@ export default function MoviesCarousel(movies) {
 }
 
 function Item(movie) {
-  console.log(movie)
-
   return (
     <Paper style={{ padding: '20px', height: '500px' }}>
       <h2 style={{ textAlign: 'center' }}>{movie.movie.title}</h2>
