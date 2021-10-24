@@ -34,7 +34,8 @@ export const SingleMoviePage = ({ match }) => {
         <img
           src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
           alt="Primary movie poster"
-          className="large-centered-rounded-img"
+          className="movie-poster"
+          id="single-movie-page-poster"
         />
         <p className="small-info">
           <b>Language:</b> {movie.original_language.toUpperCase()}

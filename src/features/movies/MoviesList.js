@@ -6,18 +6,22 @@ import { selectAllMovies, fetchMovies } from './moviesSlice'
 import { Spinner } from '../../components/Spinner'
 import MoviesCarousel from './moviesCarousel'
 
-const MovieExcerpt = ({ movie }) => {
+const MovieInList = ({ movie }) => {
   return (
-    <div className="movie-excerpt" key={movie.id}>
+    <div className="movie-in-list" key={movie.id}>
       <Link to={`/movies/${movie.id}`}>
         <img
           src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
           alt="Movie poster"
-          className="movieExcerptImg"
+          className="movie-poster"
+          style={{ width: '100%' }}
         />
       </Link>
       <br />
-      <b>{movie.title}</b>
+      <div>
+        {' '}
+        <b>{movie.title}</b>
+      </div>
     </div>
   )
 }
@@ -44,7 +48,7 @@ export const MoviesList = () => {
     content = <Spinner text="Loading..." />
   } else if (movieStatus === 'succeeded') {
     content = movies.map((movie) => (
-      <MovieExcerpt key={movie.id} movie={movie} />
+      <MovieInList key={movie.id} movie={movie} />
     ))
 
     movCar = <MoviesCarousel movies={movies} />

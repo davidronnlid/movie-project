@@ -23,11 +23,11 @@ function Item(movie) {
   return (
     <Paper style={{ padding: '20px', height: '500px' }}>
       <h2 style={{ textAlign: 'center' }}>{movie.movie.title}</h2>
-      <Link to={`/movies/${movie.movie.id}`}>
+      <Link to={`/movies/${movie.movie.id}`} className="movieBoxShadow">
         <img
           src={`http://image.tmdb.org/t/p/w185/${movie.movie.poster_path}`}
           alt="Movie poster"
-          className="movieExcerptImg"
+          className="movie-poster movieBoxShadow"
           style={{ maxWidth: '200px' }}
         />
       </Link>{' '}
