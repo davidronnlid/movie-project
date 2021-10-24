@@ -17,3 +17,5 @@ I created this movie browsing app for two reasons. These are 1. for practice, an
 - JS
 - HTML
 - CSS
+
+... and last but not least, Google (for inspiration regarding features, design and code solutions)!
