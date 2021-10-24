@@ -1,3 +1,6 @@
+**Who developed this app?**
+David Rönnlid, without external help other than Google
+
 **Errors in the app and why they are not fixed**
 
 There are many "errors" in this movie browsing application. For instance, if you refresh the page when you've navigated to a specific movie to see detailed information about it, you will no longer be able to see details about the movie but instead will get an error message "Movie not found".
