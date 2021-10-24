@@ -17,7 +17,7 @@ export const About = () => (
     </p>
     <img
       src={ConfidentSmile}
-      className="large-centered-rounded-img"
+      className="largeCenteredImage"
       style={{
         objectFit: 'cover',
         objectPosition: '-10% 20%',

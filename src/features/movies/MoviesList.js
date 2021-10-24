@@ -8,12 +8,12 @@ import MoviesCarousel from './moviesCarousel'
 
 const MovieInList = ({ movie }) => {
   return (
-    <div className="movie-in-list" key={movie.id}>
+    <div className="movieInList" key={movie.id}>
       <Link to={`/movies/${movie.id}`}>
         <img
           src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
           alt="Movie poster"
-          className="movie-poster"
+          className="moviePoster"
           style={{ width: '100%' }}
         />
       </Link>
@@ -57,7 +57,7 @@ export const MoviesList = () => {
   }
 
   return (
-    <section className="movies-list">
+    <section className="moviesList">
       <h2>Movies</h2>
       <button onClick={() => toggleshowMovCar()}>
         Toggle carousel / list view

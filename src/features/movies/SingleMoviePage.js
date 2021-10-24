@@ -34,10 +34,9 @@ export const SingleMoviePage = ({ match }) => {
         <img
           src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
           alt="Primary movie poster"
-          className="movie-poster"
-          id="single-movie-page-poster"
+          className="moviePoster largeCenteredImage"
         />
-        <p className="small-info">
+        <p className="smallInfo">
           <b>Language:</b> {movie.original_language.toUpperCase()}
           <br /> <b>Release date:</b> {movie.release_date} <br />
           <b>No. of ratings:</b> {movie.vote_count}

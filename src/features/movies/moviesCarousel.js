@@ -27,7 +27,7 @@ function Item(movie) {
         <img
           src={`http://image.tmdb.org/t/p/w185/${movie.movie.poster_path}`}
           alt="Movie poster"
-          className="movie-poster movieBoxShadow"
+          className="moviePoster movieBoxShadow"
           style={{ maxWidth: '200px' }}
         />
       </Link>{' '}
