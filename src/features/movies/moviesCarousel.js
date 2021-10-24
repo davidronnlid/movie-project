@@ -11,6 +11,7 @@ export default function MoviesCarousel(movies) {
       interval={4000}
       stopAutoPlayOnHover={true}
       navButtonsAlwaysVisible={true}
+      swipe={true}
     >
       {movies.movies.map((movie, idx) => (
         <Item key={idx} movie={movie} />
