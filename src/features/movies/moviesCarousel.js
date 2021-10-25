@@ -1,22 +1,50 @@
-import React from 'react'
-import Carousel from 'react-material-ui-carousel'
+import React, { useState } from 'react'
+// import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
+import Flickity from 'react-flickity-component'
+
+const flickityOptions = {
+  initialIndex: 2,
+  pageDots: false,
+  freeScroll: true,
+  contain: true,
+  fullscreen: true,
+  prevNextButtons: false,
+}
+
 export default function MoviesCarousel(movies) {
   return (
-    <Carousel
-      animation={'fade'}
-      timeout={200}
-      interval={4000}
-      stopAutoPlayOnHover={true}
-      navButtonsAlwaysVisible={true}
-      swipe={true}
+    // Flickity solution
+    <Flickity
+      className={'carousel'} // default ''
+      elementType={'div'} // default 'div'
+      options={flickityOptions} // takes flickity options {}
+      disableImagesLoaded={false} // default false
+      reloadOnUpdate // default false
+      static // default false
     >
-      {movies.movies.map((movie, idx) => (
-        <Item key={idx} movie={movie} />
+      {movies.movies.map((movie) => (
+        <Link to={`/movies/${movie.id}`}>
+          <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />
+        </Link>
       ))}
-    </Carousel>
+    </Flickity>
+
+    // If mobile, return mobile Flickity solution - otherwise return Carousel stuffs
+    // <Carousel
+    //   animation={'fade'}
+    //   timeout={200}
+    //   interval={4000}
+    //   stopAutoPlayOnHover={true}
+    //   navButtonsAlwaysVisible={true}
+    //   swipe={true}
+    // >
+    //   {movies.movies.map((movie, idx) => (
+    //     <Item key={idx} movie={movie} />
+    //   ))}
+    // </Carousel>
   )
 }
 
