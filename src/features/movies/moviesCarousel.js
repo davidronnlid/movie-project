@@ -49,6 +49,7 @@ export default function MoviesCarousel(movies) {
             <Link to={`/movies/${movie.id}`}>
               <img
                 src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+                alt="Primary movie poster"
               />
             </Link>
           ))}
