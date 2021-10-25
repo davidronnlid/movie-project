@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-// import Carousel from 'react-material-ui-carousel'
+import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-
+import { useEffect } from 'react'
 import Flickity from 'react-flickity-component'
 
 const flickityOptions = {
-  initialIndex: 2,
+  initialIndex: 1,
   pageDots: false,
   freeScroll: true,
   contain: true,
@@ -15,36 +15,59 @@ const flickityOptions = {
 }
 
 export default function MoviesCarousel(movies) {
-  return (
-    // Flickity solution
-    <Flickity
-      className={'carousel'} // default ''
-      elementType={'div'} // default 'div'
-      options={flickityOptions} // takes flickity options {}
-      disableImagesLoaded={false} // default false
-      reloadOnUpdate // default false
-      static // default false
-    >
-      {movies.movies.map((movie) => (
-        <Link to={`/movies/${movie.id}`}>
-          <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />
-        </Link>
-      ))}
-    </Flickity>
+  const [width, setWidth] = useState(window.innerWidth)
 
-    // If mobile, return mobile Flickity solution - otherwise return Carousel stuffs
-    // <Carousel
-    //   animation={'fade'}
-    //   timeout={200}
-    //   interval={4000}
-    //   stopAutoPlayOnHover={true}
-    //   navButtonsAlwaysVisible={true}
-    //   swipe={true}
-    // >
-    //   {movies.movies.map((movie, idx) => (
-    //     <Item key={idx} movie={movie} />
-    //   ))}
-    // </Carousel>
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth)
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange)
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange)
+    }
+  }, [])
+
+  let isMobile
+  if (width <= 768) {
+    isMobile = true
+  } else {
+    isMobile = false
+  }
+
+  return (
+    <>
+      {isMobile ? (
+        <Flickity
+          className={'carousel'} // default ''
+          elementType={'div'} // default 'div'
+          options={flickityOptions} // takes flickity options {}
+          disableImagesLoaded={false} // default false
+          reloadOnUpdate // default false
+          static // default false
+        >
+          {movies.movies.map((movie) => (
+            <Link to={`/movies/${movie.id}`}>
+              <img
+                src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+              />
+            </Link>
+          ))}
+        </Flickity>
+      ) : (
+        <Carousel
+          animation={'fade'}
+          timeout={200}
+          interval={4000}
+          stopAutoPlayOnHover={true}
+          navButtonsAlwaysVisible={true}
+          swipe={true}
+        >
+          {movies.movies.map((movie, idx) => (
+            <Item key={idx} movie={movie} />
+          ))}
+        </Carousel>
+      )}
+    </>
   )
 }
 

@@ -283,6 +283,10 @@ button:disabled:hover {
 }
 
 .carousel {
-  background-color: red;
-  width: 305px;
+  background-color: black;
+  width: 80vw;
+  margin: auto;
+  padding: 0px;
+  border: 10px solid black;
+  overflow-x: hidden;
 }
