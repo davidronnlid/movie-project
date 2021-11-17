@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom'
 
-import { Navbar } from './app/Navbar'
+import { Navbar } from './Navbar'
 import { MoviesList } from './features/movies/MoviesList'
 import { SingleMoviePage } from './features/movies/SingleMoviePage'
 import { About } from './features/about/About'

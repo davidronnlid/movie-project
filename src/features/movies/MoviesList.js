@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { selectAllMovies, fetchMovies } from './moviesSlice'
 import { Spinner } from '../../components/Spinner'
 import MoviesCarousel from './moviesCarousel'
-import './movieList.css'
+import './movies.css'
 
 const MovieInList = ({ movie }) => {
   return (
