@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import { selectAllMovies, fetchMovies } from './moviesSlice'
 import { Spinner } from '../../components/Spinner'
 import MoviesCarousel from './moviesCarousel'
+
 import './movies.css'
+import '../../components/buttons.css'
 
 const MovieInList = ({ movie }) => {
   return (
@@ -60,10 +62,7 @@ export const MoviesList = () => {
   return (
     <section>
       <h2>Movies</h2>
-      <button
-        onClick={() => toggleshowMovCar()}
-        className="toggleMovieListDisplayButton"
-      >
+      <button onClick={() => toggleshowMovCar()} className="stdButton">
         Toggle carousel / list view
       </button>
       <br />

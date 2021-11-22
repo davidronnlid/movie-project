@@ -3,23 +3,18 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { selectMovieById } from './moviesSlice'
 
+import '../../components/buttons.css'
+
 export const SingleMoviePage = ({ match }) => {
   const { movieId } = match.params
 
   const movie = useSelector((state) => selectMovieById(state, movieId))
 
-  const styledBackToHomePageButton = {
-    padding: '10px',
-    margin: '100px 100px 0 0',
-    border: '1px solid black',
-    borderRadius: '6px',
-  }
-
   if (!movie) {
     return (
       <section>
         <h2>Movie not found!</h2>
-        <Link to="/" style={styledBackToHomePageButton}>
+        <Link to="/" className="stdButton">
           Go back to browse movies
         </Link>
       </section>
@@ -27,8 +22,8 @@ export const SingleMoviePage = ({ match }) => {
   }
 
   return (
-    <section>
-      <article className="movie">
+    <>
+      <div className="movie">
         <h2 style={{ textAlign: 'center' }}>{movie.title}</h2>
 
         <img
@@ -50,7 +45,7 @@ export const SingleMoviePage = ({ match }) => {
           alt="Secondary movie poster"
           className="secondaryMovieImg"
         />
-      </article>
-    </section>
+      </div>
+    </>
   )
 }

@@ -1,0 +1,36 @@
+.stdButton {
+  font-weight: 700;
+  padding: 0.25rem 1.5rem;
+  border: solid black 2px;
+  border-radius: 6px;
+  color: var(--third-color);
+  margin-bottom: 10px;
+  background-color: var(--first-color);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  transition-duration: 0.4s;
+  text-decoration: none;
+}
+
+.stdButton:hover {
+  color: var(--fourth-color);
+  box-shadow: none;
+}
+
+.smallScreenMenuButton {
+  text-decoration: none;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 5px;
+  margin: 0px;
+  margin-top: -5px;
+  color: var(--first-color);
+  background: var(--third-color);
+  border: none;
+  box-shadow: none;
+}
+
+.faIcon {
+  color: var(--third-color);
+}

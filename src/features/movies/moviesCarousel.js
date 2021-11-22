@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Carousel from 'react-material-ui-carousel'
-import { Paper } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import useWindowSize from '../../components/windowSize'
 import Flickity from 'react-flickity-component'
 
 const flickityOptions = {
@@ -15,31 +14,12 @@ const flickityOptions = {
 }
 
 export default function MoviesCarousel(movies) {
-  const [width, setWidth] = useState(window.innerWidth)
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth)
-  }
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange)
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange)
-    }
-  }, [])
-
-  let isMobile
-  if (width <= 768) {
-    isMobile = true
-  } else {
-    isMobile = false
-  }
-
   return (
     <>
-      {isMobile ? (
+      {useWindowSize().width < 768 ? (
         <Flickity
-          className={'carousel'} // default ''
           elementType={'div'} // default 'div'
+          className={'flickityCarousel'}
           options={flickityOptions} // takes flickity options {}
           disableImagesLoaded={false} // default false
           reloadOnUpdate // default false
@@ -62,6 +42,7 @@ export default function MoviesCarousel(movies) {
           stopAutoPlayOnHover={true}
           navButtonsAlwaysVisible={true}
           swipe={true}
+          className={'largeScreenCarousel'}
         >
           {movies.movies.map((movie, idx) => (
             <Item key={idx} movie={movie} />
@@ -74,20 +55,19 @@ export default function MoviesCarousel(movies) {
 
 function Item(movie) {
   return (
-    <Paper style={{ padding: '20px', height: '500px' }}>
+    <>
       <h2 style={{ textAlign: 'center' }}>{movie.movie.title}</h2>
       <Link to={`/movies/${movie.movie.id}`} className="movieBoxShadow">
         <img
           src={`http://image.tmdb.org/t/p/w185/${movie.movie.poster_path}`}
           alt="Movie poster"
           className="moviePoster movieBoxShadow"
-          style={{ maxWidth: '200px' }}
         />
       </Link>{' '}
       <p style={{ marginTop: '50px', textAlign: 'center' }}>
         <b>No. of ratings:</b> {movie.movie.vote_count} <b>Average rating:</b>{' '}
         {movie.movie.vote_average}
       </p>
-    </Paper>
+    </>
   )
 }

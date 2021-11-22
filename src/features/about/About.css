@@ -1,0 +1,9 @@
+.imgOfDavid {
+  object-fit: cover;
+  object-position: -10% 20%;
+  border-radius: 6px;
+  margin-top: 30px;
+  width: 180px;
+  height: 180px;
+  box-shadow: var(--std-bs);
+}

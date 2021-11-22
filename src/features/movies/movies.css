@@ -1,51 +1,37 @@
-.toggleMovieListDisplayButton {
-  font-weight: 700;
-  padding: 0.25rem 1.5rem;
-  border: solid black 2px;
-  border-radius: 6px;
-  color: black;
-  margin-bottom: 10px;
-  background-color: var(--fifth-color);
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  transition-duration: 0.4s;
-}
-
-.toggleMovieListDisplayButton:hover {
-  background-color: var(--third-color);
-  box-shadow: none;
-}
-
 /* movies list */
 .movie h2 {
   font-size: 2.5rem;
   margin-bottom: 5px;
-  color: white;
+  color: var(--first-color);
 }
 
 .movieInList {
   padding: 0 0 0.15rem 0;
   margin: 10px 10px 0 0;
-  border: 1px solid #b1aeae;
   border-radius: 7px;
   text-align: center;
+  background: var(--first-color);
+  color: var(--third-color);
+  box-shadow: var(--std-bs);
+  padding-bottom: 10px;
+  overflow: hidden;
 }
 
 .movie {
-  border: 1px solid black;
   padding: 15px;
-  background-color: #212529;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-  border-radius: 0 0 20px 20px;
+  background-color: var(--third-color);
+  color: var(--first-color);
+  width: 80vw;
+  margin: 0 auto;
 }
 
 .smallInfo {
   text-align: center;
   padding: 10px;
-  border: 1px solid white;
+  color: var(--third-color);
+  background: var(--first-color);
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: var(--std-bs);
 }
 
 .largeCenteredImage {
@@ -55,6 +41,7 @@
   width: 40%;
   margin-bottom: 25px !important;
   border-radius: 5px;
+  box-shadow: var(--std-bs);
 }
 
 .secondaryMovieImg {
@@ -64,7 +51,7 @@
   width: 100%;
   margin-bottom: 5px;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  box-shadow: var(--std-bs);
 }
 
 .moviePoster {
@@ -73,7 +60,7 @@
   margin-right: auto;
   margin-bottom: -15px;
   border-radius: 5px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 300px;
 }
 
 .grid {
@@ -86,13 +73,22 @@
   font-size: 25px;
 }
 
-.carousel {
-  background-color: black;
-  width: 80vw;
-  margin: auto;
-  padding: 0px;
-  border: 10px solid black;
-  overflow-x: hidden;
+.largeScreenCarousel {
+  background: var(--first-color);
+  height: 650px;
+  color: var(--third-color);
+  box-shadow: var(--std-bs);
+  border-radius: 6px;
+}
+
+.flickityCarousel {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.flickityCarousel a img {
+  height: 190px;
+  object-fit: contain;
 }
 
 /*# sourceMappingURL=movies.css.map */
