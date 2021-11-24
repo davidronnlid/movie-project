@@ -6,8 +6,6 @@ import BasicMenu from '../src/components/menuDropdown'
 import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
-  const [smallOrLargeScreen, setScreenBool] = useState(window.innerWidth)
-
   return (
     <nav>
       <Link to="/">
