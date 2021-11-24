@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import ErrorMessage from '../../components/ErrorMessage'
 import { selectMovieById } from './moviesSlice'
 
 import '../../components/buttons.css'
@@ -11,14 +11,7 @@ export const SingleMoviePage = ({ match }) => {
   const movie = useSelector((state) => selectMovieById(state, movieId))
 
   if (!movie) {
-    return (
-      <section>
-        <h2>Movie not found!</h2>
-        <Link to="/" className="stdButton">
-          Go back to browse movies
-        </Link>
-      </section>
-    )
+    return <ErrorMessage />
   }
 
   return (
