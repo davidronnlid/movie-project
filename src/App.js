@@ -10,6 +10,7 @@ import { Navbar } from './Navbar'
 import { MoviesList } from './features/movies/MoviesList'
 import { SingleMoviePage } from './features/movies/SingleMoviePage'
 import { About } from './features/about/About'
+import ErrorMessage from './components/ErrorMessage'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           />
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/error" component={ErrorMessage} />
 
           <Redirect to="/" />
         </Switch>
