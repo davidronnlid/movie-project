@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
           <Route exact path="/about" component={About} />
 
-          <Route exact path="/error" component={ErrorMessage} />
+          <Route exact path="/404.html" component={ErrorMessage} />
 
           <Redirect to="/" />
         </Switch>
