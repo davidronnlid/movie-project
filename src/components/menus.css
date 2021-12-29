@@ -1,5 +1,12 @@
 /* Meta-class for basic MUI dropdown menu component */
-.css-6hp17o-MuiList-root-MuiMenu-list {
+/* .css-6hp17o-MuiList-root-MuiMenu-list {
+  background: var(--third-color);
+  padding-top: 0;
+} */
+
+/* This styling doesn't get applied on iPhone in-prod */
+
+#basic-menu {
   background: var(--third-color);
   padding-top: 0;
 }
