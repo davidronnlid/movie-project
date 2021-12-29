@@ -32,7 +32,7 @@ function App() {
 
           <Route path="/404" component={ErrorMessage} />
 
-          <Redirect to="/" />
+          <Redirect to="/404" />
         </Switch>
       </div>
     </Router>
