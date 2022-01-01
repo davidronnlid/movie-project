@@ -1,59 +1,54 @@
 import * as React from 'react'
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
 import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 
 import '../../src/components/menus.css'
 import '../components/buttons.css'
 
 export default function BasicMenu(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
+  const [opened, setOpened] = useState(false)
+
+  const ref = useRef()
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (opened && ref.current && !ref.current.contains(e.target)) {
+        setOpened(false)
+      }
+    }
+
+    document.addEventListener('mousedown', checkIfClickedOutside)
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener('mousedown', checkIfClickedOutside)
+    }
+  }, [opened])
 
   return (
-    <div>
-      <Button
-        id="basic-button"
-        aria-controls="basic-menu"
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
+    <div ref={ref} className="dropdown">
+      <button className="faIcon" onClick={() => setOpened(!opened)}>
         {props.menuLabel}
-      </Button>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <Link
-          to={props.buttonOneUrl}
-          className="stdButton smallScreenMenuButton"
-        >
-          <MenuItem>{props.buttonOneText}</MenuItem>
-        </Link>
+      </button>
 
-        <br />
-        <Link
-          to={props.buttonTwoUrl}
-          className="stdButton smallScreenMenuButton"
-        >
-          {props.buttonTwoText ? (
-            <MenuItem>{props.buttonTwoText}</MenuItem>
-          ) : null}
-        </Link>
-      </Menu>
+      {opened ? (
+        <div className="openedMenuItems">
+          <Link
+            className="stdButton smallScreenMenuButton"
+            to={props.buttonOneUrl}
+          >
+            {props.buttonOneText}
+          </Link>
+          <Link
+            className="stdButton smallScreenMenuButton"
+            to={props.buttonTwoUrl}
+          >
+            {props.buttonTwoText}
+          </Link>
+        </div>
+      ) : null}
     </div>
   )
 }

@@ -19,18 +19,17 @@
 }
 
 .smallScreenMenuButton {
-  text-decoration: none;
-  padding: 0px;
-  padding-left: 10px;
-  padding-right: 5px;
-  margin: 0px;
-  margin-top: -5px;
-  color: var(--first-color);
-  background: var(--third-color);
-  border: none;
-  box-shadow: none;
+  min-width: 160px;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 1px 8px 15px rgba(255, 255, 255, 0.1);
 }
 
 .faIcon {
   color: var(--third-color);
+  background: var(--first-color);
+  border: none;
+  font-size: 22px;
+  margin-right: 2.25vw;
+  margin-top: 8px;
 }

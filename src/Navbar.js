@@ -6,27 +6,31 @@ import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
   return (
-    <nav>
-      <Link to="/">
-        <h1>David Rönnlid Movies</h1>
-      </Link>
-
-      <div>
-        {useWindowSize().width < 768 ? (
+    <nav style={{ justifyContent: 'space-between' }}>
+      {useWindowSize().width < 768 ? (
+        <>
+          <Link to="/">
+            <h1>DRM</h1>
+          </Link>
           <BasicMenu
-            menuLabel={<i class="fa fa-bars faIcon" />}
+            menuLabel={<i className="fa fa-bars faIcon" />}
             buttonOneText={'Browse movies'}
             buttonTwoText={'About'}
             buttonOneUrl={'/'}
             buttonTwoUrl={'/about'}
           />
-        ) : (
-          <>
+        </>
+      ) : (
+        <>
+          <Link to="/">
+            <h1>David Rönnlid Movies</h1>
+          </Link>
+          <div>
             <Link to="/">Browse movies</Link>
             <Link to="/about">About</Link>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </nav>
   )
 }
