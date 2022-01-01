@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { Navbar } from './Navbar'
 import { MoviesList } from './features/movies/MoviesList'
@@ -30,9 +25,7 @@ function App() {
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
           <Route exact path="/about" component={About} />
 
-          <Route path="/404" component={ErrorMessage} />
-
-          <Redirect to="/404" />
+          <Route path="*" component={ErrorMessage} />
         </Switch>
       </div>
     </Router>
