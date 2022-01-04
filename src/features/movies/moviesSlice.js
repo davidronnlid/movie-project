@@ -7,10 +7,19 @@ const initialState = {
   error: null,
 }
 
+let serverAPI_KEY
+
+fetch('.netlify/functions/api')
+  .then((response) => response.json())
+  .then((json) => {
+    serverAPI_KEY = json.api
+  })
+
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=337b39ef734161217d4dcb48cef14cb9`
+    `https://api.themoviedb.org/3/discover/movie?${serverAPI_KEY}`
   )
+  // Above API key should be environment variable
 
   return response.data.results
 })
