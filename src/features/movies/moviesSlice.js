@@ -7,19 +7,19 @@ const initialState = {
   error: null,
 }
 
-let serverURL
-
-async const fetchAPIKey = () => {
-  serverURL = await fetch('../../../netlify/functions/api.js')
-  .then((response) => response.json())
-  .then((json) => {
-     serverUrl = json.api
-  })
-}
-
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?${fetchAPIKey.then(serverURL=>serverURL)}`
+    `https://api.themoviedb.org/3/discover/movie?${fetch(
+      '../../../netlify/functions/api.js'
+    )
+      .then((response) => {
+        console.log(response, 'response')
+        response.json()
+      })
+      .then((json) => {
+        console.log(json)
+        return json.api
+      })}`
   )
 
   return response.data.results
