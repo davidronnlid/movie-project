@@ -1,4 +1,4 @@
-exports.handler = async (event, context) => {
+export async const api_key_exporter = () => {
   return {
     statusCode: 200,
     body: JSON.stringify({
