@@ -9,15 +9,17 @@ const initialState = {
 
 let serverURL
 
-fetch('../../../netlify/functions/api.js')
+async const fetchAPIKey = () => {
+  serverURL = await fetch('../../../netlify/functions/api.js')
   .then((response) => response.json())
   .then((json) => {
-    serverURL = json.api
+     serverUrl = json.api
   })
+}
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?${serverURL}`
+    `https://api.themoviedb.org/3/discover/movie?${fetchAPIKey.then(serverURL=>serverURL)}`
   )
 
   return response.data.results
