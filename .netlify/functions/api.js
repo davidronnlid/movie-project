@@ -1,21 +1,18 @@
-let movie_data = () =>
-  fetch(
-    `https://api.themoviedb.org/3/discover/movie?${process.env.MOVIEDB_API_KEY}`
-  )
-    .then((response) => {
-      console.log('response:', response)
-      response.json()
-    })
-    .then((json) => {
-      console.log(json)
-      return json.api
-    })
+const fetch = require('node-fetch')
+
+const API_ENDPOINT = 'https://api.themoviedb.org/3/discover/movie?'
+const API_KEY = process.env.MOVIEDB_API_KEY
 
 exports.handler = async (event, context) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      api: movie_data,
-    }),
+  try {
+    const response = await fetch(API_ENDPOINT + API_KEY)
+    const data = await response.json()
+    return { statusCode: 200, body: JSON.stringify({ data }) }
+  } catch (error) {
+    console.log(error)
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Failed fetching data' }),
+    }
   }
 }
