@@ -1,5 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import {
+  createSlice,
+  createAsyncThunk,
+  applyMiddleware,
+} from '@reduxjs/toolkit'
 
 const initialState = {
   movies: [],
@@ -8,21 +11,11 @@ const initialState = {
 }
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?${fetch(
-      '../../../netlify/functions/api.js'
-    )
-      .then((response) => {
-        console.log(response, 'response')
-        response.json()
-      })
-      .then((json) => {
-        console.log(json)
-        return json.api
-      })}`
-  )
-
-  return response.data.results
+  fetch('/movie-project/.netlify/functions/api.js')
+    .then((response) => {
+      console.log(response)
+    })
+    .then((response) => response.api)
 })
 
 const moviesSlice = createSlice({
