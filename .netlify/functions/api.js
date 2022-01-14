@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+const fetch = require('node-fetch')
 
 const API_ENDPOINT = 'https://api.themoviedb.org/3/discover/movie?'
 const API_KEY = process.env.MOVIEDB_API_KEY
