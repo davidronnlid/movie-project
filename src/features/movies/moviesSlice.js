@@ -7,12 +7,12 @@ const initialState = {
 }
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
-  fetch('https://davidronnlidmovies.netlify.app/.netlify/functions/api').then(
-    (response) => {
-      console.log(response)
-      return response
-    }
-  )
+  await fetch(
+    'https://davidronnlidmovies.netlify.app/.netlify/functions/api'
+  ).then((response) => {
+    console.log(response)
+    return response
+  })
 })
 
 const moviesSlice = createSlice({
