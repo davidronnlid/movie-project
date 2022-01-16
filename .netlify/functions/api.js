@@ -5,8 +5,9 @@ const API_KEY = process.env.MOVIEDB_API_KEY
 
 exports.handler = async (event, context) => {
   try {
-    console.log(response)
     const response = await fetch(API_ENDPOINT + API_KEY)
+    console.log(response)
+
     const data = await response.json()
     return { statusCode: 200, body: JSON.stringify({ data }) }
   } catch (error) {
