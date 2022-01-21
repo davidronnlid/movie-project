@@ -9,7 +9,13 @@ const initialState = {
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', (movies) => {
   fetch('https://davidronnlidmovies.netlify.app/.netlify/functions/api').then(
     (response) => {
-      console.log('.then log', response.body, response.results)
+      console.log(
+        '.then log',
+        response.body.json(),
+        response.results.json(),
+        response.json().body,
+        response.json().results
+      )
 
       return [...movies, response]
     }
