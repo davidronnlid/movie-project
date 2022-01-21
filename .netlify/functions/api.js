@@ -9,6 +9,7 @@ exports.handler = async (event, context) => {
     console.log(response)
 
     const data = await response.json()
+    console.log('Data', data)
     return { statusCode: 200, body: JSON.stringify({ data }) }
   } catch (error) {
     console.log('Error:', error)
