@@ -6,10 +6,10 @@ const initialState = {
   error: null,
 }
 
-export const fetchMovies = createAsyncThunk('movies/fetchMovies', () => {
+export const fetchMovies = createAsyncThunk('movies/fetchMovies', (movies) => {
   fetch('https://davidronnlidmovies.netlify.app/.netlify/functions/api').then(
     (response) => {
-      return response
+      return [...movies, response]
     }
   )
 })
