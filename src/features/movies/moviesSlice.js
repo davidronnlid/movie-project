@@ -10,7 +10,7 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
   await fetch(
     'https://davidronnlidmovies.netlify.app/.netlify/functions/api'
   ).then((response) => {
-    return response.results()
+    return response.results
   })
 })
 

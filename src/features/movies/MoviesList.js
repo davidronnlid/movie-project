@@ -34,7 +34,7 @@ export const MoviesList = () => {
   const movies = useSelector(selectAllMovies)
 
   const movieStatus = useSelector((state) => state.movies.status)
-  // const error = useSelector((state) => state.movies.error)
+  const error = useSelector((state) => state.movies.error)
 
   const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
@@ -55,10 +55,9 @@ export const MoviesList = () => {
     ))
 
     movCar = <MoviesCarousel movies={movies} />
+  } else if (movieStatus === 'failed') {
+    content = <div>{console.log(error) && error}</div>
   }
-  // else if (movieStatus === 'failed') {
-  //   content = <div>{console.log(error) && error}</div>
-  // }
 
   return (
     <section>
