@@ -42,6 +42,6 @@ export const selectAllMovies = (state) => state.movies.movies
 export const selectMovieById = (state, movieId) =>
   state.movies.movies.find((movie) => movie.id.toString() === movieId)
 
-const logging = () => console.log(state)
+const logging = (state) => console.log(state)
 
 logging()
