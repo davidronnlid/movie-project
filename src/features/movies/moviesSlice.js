@@ -39,7 +39,9 @@ export default moviesSlice.reducer
 
 export const selectAllMovies = (state) => state.movies.movies
 
-console.log(state)
-
 export const selectMovieById = (state, movieId) =>
   state.movies.movies.find((movie) => movie.id.toString() === movieId)
+
+const logging = () => console.log(state)
+
+logging()
