@@ -10,7 +10,7 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
   await fetch(
     'https://davidronnlidmovies.netlify.app/.netlify/functions/api'
   ).then((response) => {
-    return response.json()
+    return response.results()
   })
 })
 
@@ -41,7 +41,3 @@ export const selectAllMovies = (state) => state.movies.movies
 
 export const selectMovieById = (state, movieId) =>
   state.movies.movies.find((movie) => movie.id.toString() === movieId)
-
-const logging = (state) => console.log(state)
-
-logging()
