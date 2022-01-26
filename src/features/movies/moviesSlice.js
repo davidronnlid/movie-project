@@ -6,21 +6,25 @@ const initialState = {
   error: null,
 }
 
-export const fetchMovies = createAsyncThunk('movies/fetchMovies', (movies) => {
-  fetch('https://davidronnlidmovies.netlify.app/.netlify/functions/api').then(
-    (response) => {
+export const fetchMovies = createAsyncThunk(
+  'movies/fetchMovies',
+  async (movieData) => {
+    await fetch(
+      'https://davidronnlidmovies.netlify.app/.netlify/functions/api'
+    ).then((movieData) => {
+      // Log what is returned from fetch call, if anything is returned
       console.log(
         '.then log',
-        response.body.json(),
-        response.results.json(),
-        response.json().body,
-        response.json().results
+        movieData.body.json(),
+        movieData.results.json(),
+        movieData.json().body,
+        movieData.json().results
       )
-
-      return [...movies, response]
-    }
-  )
-})
+      // If data is returned from feth call. Return that
+      return movieData
+    })
+  }
+)
 
 const moviesSlice = createSlice({
   name: 'movies',
