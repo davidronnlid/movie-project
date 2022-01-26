@@ -58,7 +58,12 @@ export const MoviesList = () => {
 
     movCar = <MoviesCarousel movies={movies} />
   } else if (movieStatus === 'failed') {
-    content = <div>{console.log(error) && error}</div>
+    content = (
+      <div>
+        Commented out erroring code here for testing whether other change worked
+        {/* {console.log(error) && error} */}
+      </div>
+    )
   }
 
   return (
