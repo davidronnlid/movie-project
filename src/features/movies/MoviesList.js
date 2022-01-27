@@ -74,7 +74,7 @@ export const MoviesList = () => {
       </span>
       <br />
       <br />
-      {showMovCar ? movCar : <div className="grid">{content()}</div>}
+      {showMovCar ? movCar : <div className="grid">{content}</div>}
     </section>
   )
 }
