@@ -34,7 +34,7 @@ export const MoviesList = () => {
   const movies = useSelector(selectAllMovies)
 
   const movieStatus = useSelector((state) => state.movies.status)
-  // const error = useSelector((state) => state.movies.error)
+  const error = useSelector((state) => state.movies.error)
 
   const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
@@ -52,18 +52,13 @@ export const MoviesList = () => {
   } else if (movieStatus === 'succeeded') {
     console.log(movies)
 
-    content = movies.map((movie) => (
+    content = movies.movies[0].data.results.map((movie) => (
       <MovieInList key={movie.id} movie={movie} />
     ))
 
     movCar = <MoviesCarousel movies={movies} />
   } else if (movieStatus === 'failed') {
-    content = (
-      <div>
-        Commented out erroring code here for testing whether other change worked
-        {/* {console.log(error) && error} */}
-      </div>
-    )
+    content = <div>{console.log(error) && error}</div>
   }
 
   return (
