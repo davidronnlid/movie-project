@@ -13,13 +13,6 @@ export const fetchMovies = createAsyncThunk(
       'https://davidronnlidmovies.netlify.app/.netlify/functions/api'
     ).then((movieData) => {
       // Log what is returned from fetch call, if anything is returned
-      console.log(
-        '.then log',
-        await movieData.body.json(),
-        await movieData.results.json(),
-        await movieData.json().body,
-        await movieData.json().results
-      )
       // If data is returned from feth call. Return that
       return movieData
     })
