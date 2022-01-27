@@ -52,9 +52,10 @@ export const MoviesList = () => {
   } else if (movieStatus === 'succeeded') {
     console.log(movies)
 
-    content = movies.movies[0].data.results.map((movie) => (
-      <MovieInList key={movie.id} movie={movie} />
-    ))
+    content = () =>
+      movies.movies[0].data.results.map((movie) => (
+        <MovieInList key={movie.id} movie={movie} />
+      ))
 
     movCar = <MoviesCarousel movies={movies} />
   } else if (movieStatus === 'failed') {
@@ -73,7 +74,7 @@ export const MoviesList = () => {
       </span>
       <br />
       <br />
-      {showMovCar ? movCar : <div className="grid">{content}</div>}
+      {showMovCar ? movCar : <div className="grid">{content()}</div>}
     </section>
   )
 }
