@@ -10,6 +10,7 @@ import './movies.css'
 import '../../components/buttons.css'
 
 const MovieInList = ({ movie }) => {
+  console.log('Received data in MovieInList-var', movie)
   return (
     <div className="movieInList" key={movie.id}>
       <Link to={`/movies/${movie.id}`}>
