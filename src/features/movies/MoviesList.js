@@ -58,7 +58,7 @@ export const MoviesList = () => {
 
     content = movies.movies[0].data.results.map((m) => (
       // <MovieInList key={movie.id} movie={movie} />
-      <p>{m.title.map((t) => 'Hey this movies title is:' + t)}</p>
+      <p>{m.title}</p>
     ))
 
     movCar = <MoviesCarousel movies={movies} />
