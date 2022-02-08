@@ -32,6 +32,8 @@ const moviesSlice = createSlice({
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.status = 'succeeded'
 
+        console.log(action.payload)
+
         // Add any fetched movies to the array
         state.movies = state.movies.concat(
           action.payload.movies[0].data.results
