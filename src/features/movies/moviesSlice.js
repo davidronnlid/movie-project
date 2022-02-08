@@ -44,7 +44,8 @@ const moviesSlice = createSlice({
 
 export default moviesSlice.reducer
 
-export const selectAllMovies = (state) => state.movies.movies[0].data.results
+export const selectAllMovies = (state) => state.movies.movies[0]
 
 export const selectMovieById = (state, movieId) =>
+  console.log(state.movies) &&
   state.movies.find((movie) => movie.id.toString() === movieId)
