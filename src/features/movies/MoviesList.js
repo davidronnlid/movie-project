@@ -55,9 +55,7 @@ export const MoviesList = () => {
     // console.log(movies.data.results.map((movie) => movie.title))
     console.log('1', content, 'supposed movie data:', movies.data.results)
     content = movies.data.results.map((movie) => (
-      <>
-        <MovieInList key={movie.id} movie={movie} />
-      </>
+      <MovieInList key={movie.id} movie={movie} />
     ))
 
     console.log('2', content)
