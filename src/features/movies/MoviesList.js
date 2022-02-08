@@ -51,10 +51,10 @@ export const MoviesList = () => {
   if (movieStatus === 'loading') {
     content = <Spinner text="Loading..." />
   } else if (movieStatus === 'succeeded') {
-    console.log(movies.movies[0].data.results.map((m) => m))
+    console.log(movies)
 
-    content = movies.movies[0].data.results.map((m) => (
-      <MovieInList key={m.id} movie={m} />
+    content = movies.movies[0].data.results.map((movie) => (
+      <MovieInList key={movie.id} movie={movie} />
     ))
 
     movCar = <MoviesCarousel movies={movies} />
