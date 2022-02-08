@@ -11,6 +11,7 @@ import '../../components/buttons.css'
 
 const MovieInList = ({ movie }) => {
   console.log('Received data in MovieInList-var', movie)
+
   return (
     <div className="movieInList" key={movie.id}>
       <Link to={`/movies/${movie.id}`}>
@@ -38,7 +39,7 @@ export const MoviesList = () => {
   const movieStatus = useSelector((state) => state.movies.status)
   const error = useSelector((state) => state.movies.error)
 
-  const [showMovCar, setShowMovCar] = useState(false)
+  const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
   useEffect(() => {
@@ -54,9 +55,13 @@ export const MoviesList = () => {
   } else if (movieStatus === 'succeeded') {
     console.log('1', content, 'supposed movie data:', movies.data.results)
 
-    content = movies.data.results.map((movie) => (
-      <MovieInList key={movie.id} movie={movie} />
-    ))
+    content = movies.data.results.map(
+      (movie) =>
+        console.log(
+          'This is the movie passed to the MovieInList Component:',
+          movie
+        ) && <MovieInList key={movie.id} movie={movie} />
+    )
 
     console.log('2', content)
 
@@ -77,11 +82,7 @@ export const MoviesList = () => {
       </span>
       <br />
       <br />
-      {showMovCar
-        ? console.log('movCar') && movCar
-        : console.log('content rendered') && (
-            <div className="grid">{content}</div>
-          )}
+      {showMovCar ? movCar : <div className="grid">{content}</div>}
     </section>
   )
 }
