@@ -38,7 +38,7 @@ export const MoviesList = () => {
   const movieStatus = useSelector((state) => state.movies.status)
   const error = useSelector((state) => state.movies.error)
 
-  const [showMovCar, setShowMovCar] = useState(true)
+  const [showMovCar, setShowMovCar] = useState(false)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
   useEffect(() => {
