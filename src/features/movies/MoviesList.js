@@ -9,7 +9,7 @@ import MoviesCarousel from './moviesCarousel'
 import './movies.css'
 import '../../components/buttons.css'
 
-const MovieInList = (movie) => {
+const MovieInList = ({ movie }) => {
   console.log('Received data in MovieInList-var', movie)
   return (
     <div className="movieInList" key={movie.id}>
@@ -52,8 +52,8 @@ export const MoviesList = () => {
   if (movieStatus === 'loading') {
     content = <Spinner text="Loading..." />
   } else if (movieStatus === 'succeeded') {
-    // console.log(movies.data.results.map((movie) => movie.title))
     console.log('1', content, 'supposed movie data:', movies.data.results)
+
     content = movies.data.results.map((movie) => (
       <MovieInList key={movie.id} movie={movie} />
     ))
@@ -77,7 +77,11 @@ export const MoviesList = () => {
       </span>
       <br />
       <br />
-      {showMovCar ? movCar : <div className="grid">{content}</div>}
+      {showMovCar
+        ? console.log('movCar') && movCar
+        : console.log('content rendered') && (
+            <div className="grid">{content}</div>
+          )}
     </section>
   )
 }
