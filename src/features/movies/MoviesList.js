@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { selectAllMovies, fetchMovies } from './moviesSlice'
 import { Spinner } from '../../components/Spinner'
 import MoviesCarousel from './moviesCarousel'
@@ -9,25 +9,26 @@ import MoviesCarousel from './moviesCarousel'
 import './movies.css'
 import '../../components/buttons.css'
 
-// const MovieInList = ({ movie }) => {
-// return (
-// <div className="movieInList" key={movie.id}>
-// <Link to={`/movies/${movie.id}`}>
-// <img
-// src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-// alt="Movie poster"
-// className="moviePoster"
-// style={{ width: '100%' }}
-// />
-// </Link>
-// <br />
-// <div>
-// {' '}
-// <b>{movie.title}</b>
-// </div>
-// </div>
-// )
-// }
+const MovieInList = ({ movie }) => {
+  return (
+    <div className="movieInList" key={movie.id}>
+      <Link to={`/movies/${movie.id}`}>
+        {' '}
+        <img
+          src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+          alt="Movie poster"
+          className="moviePoster"
+          style={{ width: '100%' }}
+        />
+      </Link>
+      <br />
+      <div>
+        {' '}
+        <b>{movie.title}</b>
+      </div>
+    </div>
+  )
+}
 
 export const MoviesList = () => {
   const dispatch = useDispatch()
@@ -50,15 +51,10 @@ export const MoviesList = () => {
   if (movieStatus === 'loading') {
     content = <Spinner text="Loading..." />
   } else if (movieStatus === 'succeeded') {
-    console.log(
-      movies.movies[0].data.results.map((m) =>
-        m.title.map((t) => 'Hey this movies title is:' + t)
-      )
-    )
+    console.log(movies.movies[0].data.results.map((m) => m))
 
     content = movies.movies[0].data.results.map((m) => (
-      // <MovieInList key={movie.id} movie={movie} />
-      <p>{m.title}</p>
+      <MovieInList key={m.id} movie={m} />
     ))
 
     movCar = <MoviesCarousel movies={movies} />
