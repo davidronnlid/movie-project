@@ -33,7 +33,9 @@ const moviesSlice = createSlice({
         state.status = 'succeeded'
 
         // Add any fetched movies to the array
-        state.movies = state.movies.concat(action.payload)
+        state.movies = state.movies.concat(
+          action.payload.movies[0].data.results
+        )
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.status = 'failed'
@@ -44,7 +46,7 @@ const moviesSlice = createSlice({
 
 export default moviesSlice.reducer
 
-export const selectAllMovies = (state) => state.movies.movies
+export const selectAllMovies = (state) => state.movies.movies[0].data.results
 
 export const selectMovieById = (state, movieId) =>
-  state.movies.movies.find((movie) => movie.id.toString() === movieId)
+  state.movies.find((movie) => movie.id.toString() === movieId)
