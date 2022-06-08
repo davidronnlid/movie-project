@@ -1,5 +1,5 @@
 **Who developed this app?**
-David Rönnlid, without external help other than Google. (Mark Erikson is a contributor of the GitHub project because he was involved in the development of one of the dependencies of the project.)
+David Rönnlid, without external help other than Google and npm packages (dependencies). (Mark Erikson is a contributor of the GitHub project because he was involved in the development of one of the dependencies of the project.)
 
 **Errors in the app and why they are not fixed**
 
