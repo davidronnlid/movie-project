@@ -36,7 +36,7 @@ export const MoviesList = () => {
   const dispatch = useDispatch()
   const movies = useSelector(selectAllMovies)
 
-  console.log(movies, movies[0], movies[0].data, movies[0].data.results)
+  console.log(movies, movies[0], movies[0].data)
 
   const movieStatus = useSelector((state) => state.movies.status)
   const error = useSelector((state) => state.movies.error)
