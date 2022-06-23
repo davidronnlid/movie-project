@@ -9,15 +9,16 @@ import MoviesCarousel from './moviesCarousel'
 import './movies.css'
 import '../../components/buttons.css'
 
-const MovieInList = ({ movie }) => {
-  console.log('Received data in MovieInList-var', movie)
+const MovieInList = ( props ) => {
+
+  console.log('Received data in MovieInList-var', props.movie)
 
   return (
-    <div className="movieInList" key={movie.id}>
-      <Link to={`/movies/${movie.id}`}>
+    <div className="movieInList" key={props.movie.id}>
+      <Link to={`/movies/${props.movie.id}`}>
         {' '}
         <img
-          src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+          src={`http://image.tmdb.org/t/p/w185/${props.movie.poster_path}`}
           alt="Movie poster"
           className="moviePoster"
           style={{ width: '100%' }}
@@ -26,7 +27,7 @@ const MovieInList = ({ movie }) => {
       <br />
       <div>
         {' '}
-        <b>{movie.title}</b>
+        <b>{props.movie.title}</b>
       </div>
     </div>
   )
