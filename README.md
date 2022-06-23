@@ -9,7 +9,7 @@ I created this movie browsing app for two reasons. These are 1. for practice, an
 
 **Technologies used**
 - Redux, Redux Toolkit, React Redux, React 
-- Axios
+- Fetch API
 - [The Movie Database API](https://developers.themoviedb.org/3)
 - JS, HTML, CSS
 - Node and NPM
