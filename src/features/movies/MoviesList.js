@@ -36,7 +36,6 @@ export const MoviesList = () => {
   const dispatch = useDispatch()
   const movies = useSelector(selectAllMovies)
 
-  console.log(movies, movies[0], movies[0].data)
 
   const movieStatus = useSelector((state) => state.movies.status)
   const error = useSelector((state) => state.movies.error)
@@ -58,6 +57,8 @@ export const MoviesList = () => {
     console.log('1', content, 
     // 'supposed movie data:', movies.data.results
     )
+  console.log(movies, movies[0], movies[0].data)
+
 
     content = movies.data.results.map(
       (movie) =>
