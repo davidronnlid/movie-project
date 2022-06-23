@@ -14,7 +14,9 @@ export const fetchMovies = createAsyncThunk(
     ).then((movieData) => {
       // Log what is returned from fetch call, if anything is returned
       // If data is returned from feth call. Return that
-      return movieData
+      console.log("movieData received in fetchMovies fnc", movieData)
+
+      return movieData.data.results
     })
     return await response.json()
   }
@@ -47,5 +49,4 @@ export default moviesSlice.reducer
 export const selectAllMovies = (state) => state.movies.movies
 
 export const selectMovieById = 
-(state, movieId) => state.movies.movies[0].data.results.find((movie) => movie.id.toString() === movieId) && 
-console.log("Logging after having selected a specific movie", state.movies.movies[0].data.results) 
+(state, movieId) => state.movies.movies[0].data.results.find((movie) => movie.id.toString() === movieId)
