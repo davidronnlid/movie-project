@@ -10,8 +10,8 @@ export const SingleMoviePage = ({ match }) => {
 
   const movie = useSelector((state) => selectMovieById(state, movieId))
 
-  if (!movie) {
-    console.log("SMP !movie log of movie var", movie)
+  if (!movie || !movie.title) {
+    console.log("SMP !movie log of movie var", movie, movie.title)
     return <ErrorMessage />
   }
 
