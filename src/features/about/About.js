@@ -1,6 +1,8 @@
 import React from 'react'
 import ConfidentSmile from './ConfidentSmile.png'
+import TMDBLogo from "./TMDBLogo.png"
 import './About.css'
+
 
 export const About = () => (
   <div style={{ textAlign: 'center' }}>
@@ -27,5 +29,12 @@ export const About = () => (
         David Rönnlid <i className="fa fa-linkedin" aria-hidden="true"></i>
       </a>
     </p>
+
+<p><i>This product uses the TMDB API but is not endorsed or certified by TMDB.</i></p>
+    <img
+      src={TMDBLogo}
+      className="imgOfDavid"
+      alt="TMDB Logo"
+    />
   </div>
 )
