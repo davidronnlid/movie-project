@@ -57,10 +57,11 @@ export const MoviesList = () => {
     console.log('1', content, 
     // 'supposed movie data:', movies.data.results
     )
-  console.log(movies, movies[0], movies[0].data)
+
+  console.log(movies, movies[0], movies[0].data.results)
 
 
-    content = movies.data.results.map(
+    content = movies[0].data.results.map(
       (movie) =>
         console.log(
           'This is the movie passed to the MovieInList Component:',
