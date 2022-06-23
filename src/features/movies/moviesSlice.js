@@ -14,12 +14,10 @@ export const fetchMovies = createAsyncThunk(
     ).then((movieData) => {
       // Log what is returned from fetch call, if anything is returned
       // If data is returned from feth call. Return that
-
-
-      console.log(movieData)
-
       return movieData
     })
+    
+    console.log(movieData, response.json())
     return await response.json()
   }
 )
