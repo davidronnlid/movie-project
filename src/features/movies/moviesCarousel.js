@@ -45,9 +45,9 @@ export default function MoviesCarousel(movies) {
           swipe={true}
           className={'largeScreenCarousel'}
         >
-          {movies.map((movie, idx) => (
-            <Item key={idx} movie={movie} />
-          ))}
+          {movies.map((movie, idx) => {console.log(idx, movie) 
+          return  <Item key={idx} movie={movie} />;
+})}
         </Carousel>
       )}
     </>
