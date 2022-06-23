@@ -40,7 +40,7 @@ export const MoviesList = () => {
   const movieStatus = useSelector((state) => state.movies.status)
   const error = useSelector((state) => state.movies.error)
 
-  const [showMovCar, setShowMovCar] = useState(false)
+  const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export const MoviesList = () => {
       </span>
       <br />
       <br />
-      {showMovCar ? movCar : <div className="grid">{content}</div>}
+      {showMovCar ? <div className="grid">{content}</div> : movCar}
     </section>
   )
 }
