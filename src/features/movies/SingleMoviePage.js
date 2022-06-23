@@ -8,9 +8,10 @@ import '../../components/buttons.css'
 export const SingleMoviePage = ({ match }) => {
   const { movieId } = match.params
 
-  const movie = useSelector((state) => selectMovieById(state, movieId))
+  let movie = {};
+  movie = useSelector((state) => selectMovieById(state, movieId))
 
-  if (!movie || !movie.title) {
+  if (movie==={}) {
     console.log("SMP !movie log of movie var", movie, movie.title)
     return <ErrorMessage />
   }
