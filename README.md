@@ -14,6 +14,6 @@ I created this movie browsing app for two reasons. These are 1. for practice, an
 - [The Movie Database API](https://developers.themoviedb.org/3)
 - Node and NPM
 - Git and GitHub
-- Netlify (including serverless functions and environment variables to hide API keys)
+- Netlify (including serverless functions and environment variables)
 
 ... and last but not least, Google (for inspiration regarding features, design and code solutions)!
