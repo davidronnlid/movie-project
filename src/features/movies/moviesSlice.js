@@ -48,4 +48,4 @@ export const selectAllMovies = (state) => state.movies.movies
 
 export const selectMovieById = (state, movieId) =>
   console.log(state.movies) &&
-  state.movies.find((movie) => movie.id.toString() === movieId)
+  state.movies.movies[0].data.results.find((movie) => movie.id.toString() === movieId)
