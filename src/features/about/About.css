@@ -7,3 +7,8 @@
   height: 180px;
   box-shadow: var(--std-bs);
 }
+
+.tmdbLogo {
+  margin-top: 3px;
+  width: 80px;
+}

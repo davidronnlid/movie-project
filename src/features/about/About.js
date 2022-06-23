@@ -33,7 +33,7 @@ export const About = () => (
 <p><i>This product uses the TMDB API but is not endorsed or certified by TMDB.</i></p>
     <img
       src={TMDBLogo}
-      className="imgOfDavid"
+      className="tmdbLogo"
       alt="TMDB Logo"
     />
   </div>
