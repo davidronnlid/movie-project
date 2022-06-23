@@ -45,9 +45,7 @@ export default function MoviesCarousel(movies) {
           swipe={true}
           className={'largeScreenCarousel'}
         >
-          {movies.map((movie, idx) => {console.log(idx, movie) 
-          return  <Item key={idx} movie={movie} />;
-})}
+          {movies.map((movie, idx) =>  (<Item key={idx} movie={movie} />))}
         </Carousel>
       )}
     </>
@@ -57,17 +55,17 @@ export default function MoviesCarousel(movies) {
 function Item(movie) {
   return (
     <>
-      <h2 style={{ textAlign: 'center' }}>{movie.movie.title}</h2>
-      <Link to={`/movies/${movie.movie.id}`} className="movieBoxShadow">
+      <h2 style={{ textAlign: 'center' }}>{movie.title}</h2>
+      <Link to={`/movies/${movie.id}`} className="movieBoxShadow">
         <img
-          src={`http://image.tmdb.org/t/p/w185/${movie.movie.poster_path}`}
+          src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
           alt="Movie poster"
           className="moviePoster movieBoxShadow"
         />
       </Link>{' '}
       <p style={{ marginTop: '50px', textAlign: 'center' }}>
-        <b>No. of ratings:</b> {movie.movie.vote_count} <b>Average rating:</b>{' '}
-        {movie.movie.vote_average}
+        <b>No. of ratings:</b> {movie.vote_count} <b>Average rating:</b>{' '}
+        {movie.vote_average}
       </p>
     </>
   )
