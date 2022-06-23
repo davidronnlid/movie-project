@@ -10,9 +10,6 @@ import './movies.css'
 import '../../components/buttons.css'
 
 const MovieInList = ( props ) => {
-
-  console.log('Received data in MovieInList-var', props.movie)
-
   return (
     <div className="movieInList" key={props.movie.id}>
       <Link to={`/movies/${props.movie.id}`}>
@@ -63,9 +60,11 @@ export const MoviesList = () => {
 
 
   content = movies[0].data.results.map(movie => <MovieInList key={movie.id} movie={movie} />)
+  
   console.log(content)
 
   movCar = <MoviesCarousel movies={movies[0].data.results} />
+
   } else if (movieStatus === 'failed') {
     content = <div>{console.log(error) && error}</div>
   }
