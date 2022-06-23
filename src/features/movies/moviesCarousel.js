@@ -53,7 +53,7 @@ export default function MoviesCarousel(movies) {
   )
 }
 
-function Item(movie) {
+function Item({movie}) {
   return (
     <>
       <h2 style={{ textAlign: 'center' }}>{movie.title}</h2>
