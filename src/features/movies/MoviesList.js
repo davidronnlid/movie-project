@@ -9,15 +9,15 @@ import MoviesCarousel from './moviesCarousel'
 import './movies.css'
 import '../../components/buttons.css'
 
-const MovieInList = ( props ) => {
-console.log("MovieInList component log", props.movies)
+const MovieInList = ( {movie} ) => {
+console.log("MovieInList component log", movie)
 
   return (
-    <div className="movieInList" key={props.movie.id}>
-      <Link to={`/movies/${props.movie.id}`}>
+    <div className="movieInList" key={movie.id}>
+      <Link to={`/movies/${movie.id}`}>
         {' '}
         <img
-          src={`http://image.tmdb.org/t/p/w185/${props.movie.poster_path}`}
+          src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
           alt="Movie poster"
           className="moviePoster"
           style={{ width: '100%' }}
@@ -26,7 +26,7 @@ console.log("MovieInList component log", props.movies)
       <br />
       <div>
         {' '}
-        <b>{props.movie.title}</b>
+        <b>{movie.title}</b>
       </div>
     </div>
   )
@@ -63,7 +63,7 @@ export const MoviesList = () => {
 
   content = movies[0].data.results.map(movie => <MovieInList key={movie.id} movie={movie} />)
   
-  console.log(content)
+  console.log("Passing this to movies prop of MoviesCarousel:", movies[0].data.results)
 
   movCar = <MoviesCarousel movies={movies[0].data.results} />
 

@@ -14,6 +14,7 @@ const flickityOptions = {
 }
 
 export default function MoviesCarousel(movies) {
+  console.log("received this data in MoviesCarousel component")
   return (
     <>
       {useWindowSize().width < 768 ? (
