@@ -10,6 +10,8 @@ import './movies.css'
 import '../../components/buttons.css'
 
 const MovieInList = ( props ) => {
+console.log("MovieInList component log", props.movies)
+
   return (
     <div className="movieInList" key={props.movie.id}>
       <Link to={`/movies/${props.movie.id}`}>
@@ -38,7 +40,7 @@ export const MoviesList = () => {
   const movieStatus = useSelector((state) => state.movies.status)
   const error = useSelector((state) => state.movies.error)
 
-  const [showMovCar, setShowMovCar] = useState(true)
+  const [showMovCar, setShowMovCar] = useState(false)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
   useEffect(() => {
