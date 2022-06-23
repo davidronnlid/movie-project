@@ -14,7 +14,7 @@ const flickityOptions = {
 }
 
 export default function MoviesCarousel(movies) {
-  console.log("received this data in MoviesCarousel component", movies)
+  console.log("received this data in MoviesCarousel component", movies, movies.movies)
   return (
     <>
       {useWindowSize().width < 768 ? (
@@ -26,7 +26,7 @@ export default function MoviesCarousel(movies) {
           reloadOnUpdate // default false
           static // default false
         >
-          {movies.movies.map((movie) => (
+          {movies.map((movie) => (
             <Link to={`/movies/${movie.id}`}>
               <img
                 src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
@@ -45,7 +45,7 @@ export default function MoviesCarousel(movies) {
           swipe={true}
           className={'largeScreenCarousel'}
         >
-          {movies.movies.map((movie, idx) =>  (<Item key={idx} movie={movie} />))}
+          {movies.map((movie, idx) =>  (<Item key={idx} movie={movie} />))}
         </Carousel>
       )}
     </>
