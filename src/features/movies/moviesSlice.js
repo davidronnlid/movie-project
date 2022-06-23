@@ -47,6 +47,5 @@ export default moviesSlice.reducer
 export const selectAllMovies = (state) => state.movies.movies
 
 export const selectMovieById = 
-(state, movieId) => 
-console.log("Logging after having selected a specific movie", state.movies) && 
-state.movies.movies[0].data.results.find((movie) => movie.id.toString() === movieId)
+(state, movieId) => state.movies.movies[0].data.results.find((movie) => movie.id.toString() === movieId) && 
+console.log("Logging after having selected a specific movie", state.movies) 
