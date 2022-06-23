@@ -61,13 +61,8 @@ export const MoviesList = () => {
   console.log(movies[0].data.results)
 
 
-    content = movies[0].data.results.map(
-      (movie) =>
-        console.log(
-          'This is the movie passed to the MovieInList Component:',
-          movie
-        ) && <MovieInList key={movie.id} movie={movie} />
-    )
+  content = movies[0].data.results.map(movie => <MovieInList key={movie.id} movie={movie} />)
+  console.log(content)
 
   movCar = <MoviesCarousel movies={movies[0].data.results} />
   } else if (movieStatus === 'failed') {
