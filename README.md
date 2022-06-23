@@ -8,15 +8,12 @@ There are many "errors" in this movie browsing application. For instance, if you
 I created this movie browsing app for two reasons. These are 1. for practice, and 2. to show competence with Redux state management as well as handling 3rd-party API data fetching. There are certainly many things that could be improved with this app. But I believe the two goals of the project have been achieved nonetheless. It would entail a reduction of efficiency to divert attention to other tasks than the specific ones that were set out as criteria for project completion initially.
 
 **Technologies used**
-- Redux
-- Redux Toolkit
-- React Redux
-- React 
+- Redux, Redux Toolkit, React Redux, React 
 - Axios
 - [The Movie Database API](https://developers.themoviedb.org/3)
-- JS
-- HTML
-- CSS
+- JS, HTML, CSS
+- Node and NPM
+- Git and GitHub
 - Netlify (including serverless functions and environment variables to hide API keys)
 
 ... and last but not least, Google (for inspiration regarding features, design and code solutions)!
