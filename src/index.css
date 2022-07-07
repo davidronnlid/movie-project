@@ -1,13 +1,15 @@
 :root {
   --first-color: #173d52;
-  --second-color: #186063;
-  --third-color: #c3d0a3;
+  --second-color: #d3e8f3;
+  --third-color: #0d2430;
   --fourth-color: #d2904f;
-  --fifth-color: #3a3331;
+  --second-color-rgb: 211 232 243;
 
   --std-bs: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+  --text-color: var(--second-color);
 }
 
 body {
@@ -19,8 +21,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   max-width: 100%;
   overflow-x: hidden;
-  background-color: var(--third-color);
-  color: var(--first-color);
+  background-color: var(--first-color);
+  color: var(--text-color);
 }
 
 p {
@@ -32,7 +34,7 @@ nav {
   padding: 0;
   padding-bottom: 1rem;
   background: var(--first-color);
-  color: var(--third-color);
+  color: var(--text-color);
 
   width: 100%;
   display: flex;
@@ -47,13 +49,13 @@ nav a:active {
   font-weight: 700;
   padding: 0.25rem 1.5rem;
   border-radius: 6px;
-  color: var(--third-color);
-  text-decoration: none;
+  color: var(--text-color);
+  tion: none;
 }
 
 nav div a:hover {
-  color: var(--fourth-color);
-  text-decoration: underline;
+  color: var(--text-color);
+  tion: underline;
 }
 
 /* Main content */

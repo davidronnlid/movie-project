@@ -1,21 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
-  movies: [],
+  moviesState: [],
   status: 'idle',
   error: null,
 }
 
 export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
-  async (movieData) => {
+  async (numberOfMoviesFetched) => {
+    console.log(numberOfMoviesFetched)
     const response = await fetch(
-      'https://davidronnlidmovies.netlify.app/.netlify/functions/api'
+      `https://davidronnlidmovies.netlify.app/.netlify/functions/api?page=${
+        1 + numberOfMoviesFetched / 20
+      }`
     ).then((movieData) => {
       return movieData
-    })    
-
-    return await response.json()}
+    })
+    const moviesResponseData = await response.json()
+    return moviesResponseData.data.results
+  }
 )
 
 const moviesSlice = createSlice({
@@ -31,7 +35,7 @@ const moviesSlice = createSlice({
         state.status = 'succeeded'
 
         // Add any fetched movies to the array
-        state.movies = state.movies.concat(action.payload)
+        state.moviesState = state.moviesState.concat(action.payload)
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.status = 'failed'
@@ -42,7 +46,7 @@ const moviesSlice = createSlice({
 
 export default moviesSlice.reducer
 
-export const selectAllMovies = (state) => state.movies.movies
+export const selectAllMovies = (state) => state.movies.moviesState
 
-export const selectMovieById = 
-(state, movieId) => state.movies.movies[0].data.results.find((movie) => movie.id.toString() === movieId)
+export const selectMovieById = (state, movieId) =>
+  state.movies.moviesState.find((movie) => movie.id.toString() === movieId)

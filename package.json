@@ -19,7 +19,6 @@
     "flickity": "^2.2.2",
     "miragejs": "^0.1.35",
     "mock-socket": "^9.0.3",
-    "msw": "^0.34.0",
     "node-fetch": "^3.1.0",
     "node-http": "^0.0.5",
     "react": "^17",
@@ -36,7 +35,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,6 +54,8 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^10.3.0",
+    "msw": "^0.34.0",
     "prettier": "^2.0.2"
   },
   "msw": {

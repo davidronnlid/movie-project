@@ -2,7 +2,7 @@
 .movie h2 {
   font-size: 2.5rem;
   margin-bottom: 5px;
-  color: var(--first-color);
+  color: var(--text-color);
 }
 
 .movieInList {
@@ -11,7 +11,7 @@
   border-radius: 7px;
   text-align: center;
   background: var(--first-color);
-  color: var(--third-color);
+  color: var(--text-color);
   box-shadow: var(--std-bs);
   padding-bottom: 10px;
   overflow: hidden;
@@ -20,7 +20,7 @@
 .movie {
   padding: 15px;
   background-color: var(--third-color);
-  color: var(--first-color);
+  color: var(--text-color);
   width: 80vw;
   margin: 0 auto;
 }
@@ -28,7 +28,7 @@
 .smallInfo {
   text-align: center;
   padding: 10px;
-  color: var(--third-color);
+  color: var(--text-color);
   background: var(--first-color);
   border-radius: 5px;
   box-shadow: var(--std-bs);
@@ -76,7 +76,7 @@
 .largeScreenCarousel {
   background: var(--first-color);
   height: 650px;
-  color: var(--third-color);
+  color: var(--text-color);
   box-shadow: var(--std-bs);
   border-radius: 6px;
 }
