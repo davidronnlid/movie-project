@@ -9,8 +9,8 @@ import MoviesCarousel from './moviesCarousel'
 import './movies.css'
 import '../../components/buttons.css'
 
-const MovieInList = ( {movie} ) => {
-console.log("MovieInList component log", movie)
+const MovieInList = ({ movie }) => {
+  console.log('MovieInList component log', movie)
 
   return (
     <div className="movieInList" key={movie.id}>
@@ -36,16 +36,17 @@ export const MoviesList = () => {
   const dispatch = useDispatch()
   const movies = useSelector(selectAllMovies)
 
-
   const movieStatus = useSelector((state) => state.movies.status)
   const error = useSelector((state) => state.movies.error)
 
   const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
+  // const moviesFetchedLength = movies.length
+
   useEffect(() => {
     if (movieStatus === 'idle') {
-      dispatch(fetchMovies())
+      dispatch(fetchMovies(0))
     }
   }, [movieStatus, dispatch])
 
@@ -54,19 +55,16 @@ export const MoviesList = () => {
   if (movieStatus === 'loading') {
     content = <Spinner text="Loading..." />
   } else if (movieStatus === 'succeeded') {
-    console.log('1', content, 
-    // 'supposed movie data:', movies.data.results
+    console.log(
+      '1',
+      content
+      // 'supposed movie data:', movies.data.results
     )
+    content = movies.map((movie) => (
+      <MovieInList key={movie.id} movie={movie} />
+    ))
 
-  console.log(movies[0].data.results)
-
-
-  content = movies[0].data.results.map(movie => <MovieInList key={movie.id} movie={movie} />)
-  
-  console.log("Passing this to movies prop of MoviesCarousel:", movies[0].data.results)
-
-  movCar = <MoviesCarousel movies={movies[0].data.results} />
-
+    movCar = <MoviesCarousel movies={movies} />
   } else if (movieStatus === 'failed') {
     content = <div>{console.log(error) && error}</div>
   }
@@ -76,6 +74,12 @@ export const MoviesList = () => {
       <h2>Movies</h2>
       <button onClick={() => toggleshowMovCar()} className="stdButton">
         Toggle carousel / list view
+      </button>
+      <button
+        onClick={() => dispatch(fetchMovies(movies.length))}
+        className="stdButton"
+      >
+        fetch more
       </button>
       <br />
       <span>

@@ -1,0 +1,7 @@
+Frontend
+1. event som säger när vi scrollat ned till sista fetchade movien, ska triggas
+2. fetch, som vet att vi redan har x antal movies fetchade sen, behöver då utlösas
+2.1. lägg till datan i listan, skriv inte över den gamla datan med den nya'
+
+Backend
+1. fetchen som säger att vi vill ha x antal movies behöver skickas vidare till TMDB
