@@ -44,28 +44,32 @@ export const MoviesList = () => {
 
   // const moviesFetchedLength = movies.length
 
+  const handleScroll = (onScroll) => {
+    console.log(
+      onScroll.target,
+      onScroll.target.scrollHeight,
+      onScroll.target.scrollTop,
+      onScroll.target.getBoundingClientRect()
+    )
+
+    if (onScroll.target.scrollTop > 1000) {
+      dispatch(fetchMovies(movies.length))
+    }
+  }
+
   useEffect(() => {
     if (movieStatus === 'idle') {
-      dispatch(fetchMovies(0))
+      dispatch(fetchMovies(movies.length))
     }
-  }, [movieStatus, dispatch])
+  }, [movieStatus, dispatch, movies.length])
 
   let content, movCar
 
-  if (movieStatus === 'loading') {
-    content = <Spinner text="Loading..." />
-  } else if (movieStatus === 'succeeded') {
-    console.log(
-      '1',
-      content
-      // 'supposed movie data:', movies.data.results
-    )
-    content = movies.map((movie) => (
-      <MovieInList key={movie.id} movie={movie} />
-    ))
+  content = movies.map((movie) => <MovieInList key={movie.id} movie={movie} />)
 
-    movCar = <MoviesCarousel movies={movies} />
-  } else if (movieStatus === 'failed') {
+  movCar = <MoviesCarousel movies={movies} />
+
+  if (movieStatus === 'failed') {
     content = <div>{console.log(error) && error}</div>
   }
 
@@ -87,7 +91,16 @@ export const MoviesList = () => {
       </span>
       <br />
       <br />
-      {showMovCar ? <div className="grid">{content}</div> : movCar}
+
+      {movieStatus === 'loading' ? <Spinner text="Loading..." /> : null}
+
+      {showMovCar ? (
+        <div className="grid" onScroll={handleScroll}>
+          {content}
+        </div>
+      ) : (
+        movCar
+      )}
     </section>
   )
 }
