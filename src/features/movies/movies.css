@@ -65,10 +65,8 @@
 
 .grid {
   display: grid;
-  grid-gap: 1px;
+  grid-gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
-  max-height: 100vh;
-  overflow-y: scroll;
 }
 
 .largerText {

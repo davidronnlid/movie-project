@@ -1,16 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
-import { Navbar } from './Navbar'
 import { MoviesList } from './features/movies/MoviesList'
 import { SingleMoviePage } from './features/movies/SingleMoviePage'
-import { About } from './features/about/About'
 import ErrorMessage from './components/ErrorMessage'
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <div className="App" style={{ paddingBottom: '5vw' }}>
         <Switch>
           <Route
@@ -23,8 +19,6 @@ function App() {
             )}
           />
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
-          <Route exact path="/about" component={About} />
-
           <Route path="*" component={ErrorMessage} />
         </Switch>
       </div>

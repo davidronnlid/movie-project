@@ -23,11 +23,6 @@ const MovieInList = ({ movie }) => {
           style={{ width: '100%' }}
         />
       </Link>
-      <br />
-      <div>
-        {' '}
-        <b>{movie.title}</b>
-      </div>
     </div>
   )
 }
@@ -42,18 +37,18 @@ export const MoviesList = () => {
   const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
-  const handleScroll = (onScroll) => {
-    // console.log(
-    //   onScroll.target,
-    //   onScroll.target.scrollHeight,
-    //   onScroll.target.scrollTop,
-    //   onScroll.target.getBoundingClientRect()
-    // )
+  // const handleScroll = (onScroll) => {
+  //   console.log(
+  //     onScroll.target,
+  //     onScroll.target.scrollHeight,
+  //     onScroll.target.scrollTop
+  //     // onScroll.target.getBoundingClientRect()
+  //   )
 
-    if (onScroll.target.scrollTop > 1000) {
-      dispatch(fetchMovies(movies.length))
-    }
-  }
+  //   // if (onScroll.target.scrollTop > 1000) {
+  //   //   dispatch(fetchMovies(movies.length))
+  //   // }
+  // }
 
   useEffect(() => {
     if (movieStatus === 'idle') {
@@ -73,32 +68,27 @@ export const MoviesList = () => {
 
   return (
     <section>
-      <h2>Movies</h2>
       <button onClick={() => toggleshowMovCar()} className="stdButton">
         Toggle carousel / list view
       </button>
+      {movieStatus === 'loading' ? <Spinner text="Loading..." /> : null}
+
+      {showMovCar ? (
+        <div
+          className="grid"
+          // onScroll={handleScroll}
+        >
+          {content}
+        </div>
+      ) : (
+        movCar
+      )}
       <button
         onClick={() => dispatch(fetchMovies(movies.length))}
         className="stdButton"
       >
         fetch more
       </button>
-      <br />
-      <span>
-        <i>Click on a poster to see movie details.</i>
-      </span>
-      <br />
-      <br />
-
-      {movieStatus === 'loading' ? <Spinner text="Loading..." /> : null}
-
-      {showMovCar ? (
-        <div className="grid" onScroll={handleScroll}>
-          {content}
-        </div>
-      ) : (
-        movCar
-      )}
     </section>
   )
 }
