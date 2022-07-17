@@ -51,3 +51,9 @@ export const selectAllMovies = (state) => state.movies.moviesState
 
 export const selectMovieById = (state, movieId) =>
   state.movies.moviesState.find((movie) => movie.id.toString() === movieId)
+
+export const selectHighestPopularity = (state) =>
+  Math.max.apply(
+    null,
+    state.movies.moviesState.map((movie) => movie.popularity)
+  )

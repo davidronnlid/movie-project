@@ -48,7 +48,7 @@ export const SingleMoviePage = ({ match }) => {
         <h2 style={{ textAlign: 'center' }}>{movie.title}</h2>
 
         <img
-          src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+          src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
           alt="Primary movie poster"
           className="moviePoster largeCenteredImage"
         />
@@ -62,7 +62,7 @@ export const SingleMoviePage = ({ match }) => {
           <b>Overview:</b> {movie.overview}
         </p>
         <img
-          src={`http://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+          src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
           alt="Secondary movie poster"
           className="secondaryMovieImg"
         />
