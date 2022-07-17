@@ -7,7 +7,6 @@ import { Spinner } from '../../components/Spinner'
 import MoviesCarousel from './moviesCarousel'
 
 import './movies.css'
-import '../../components/buttons.css'
 
 const MovieInList = ({ movie }) => {
   console.log('MovieInList component log', movie)
@@ -37,19 +36,6 @@ export const MoviesList = () => {
   const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
-  // const handleScroll = (onScroll) => {
-  //   console.log(
-  //     onScroll.target,
-  //     onScroll.target.scrollHeight,
-  //     onScroll.target.scrollTop
-  //     // onScroll.target.getBoundingClientRect()
-  //   )
-
-  //   // if (onScroll.target.scrollTop > 1000) {
-  //   //   dispatch(fetchMovies(movies.length))
-  //   // }
-  // }
-
   useEffect(() => {
     if (movieStatus === 'idle') {
       dispatch(fetchMovies(movies.length))
@@ -68,26 +54,14 @@ export const MoviesList = () => {
 
   return (
     <section>
-      <button onClick={() => toggleshowMovCar()} className="stdButton">
+      <button onClick={() => toggleshowMovCar()}>
         Toggle carousel / list view
       </button>
       {movieStatus === 'loading' ? <Spinner text="Loading..." /> : null}
 
-      {showMovCar ? (
-        <div
-          className="grid"
-          // onScroll={handleScroll}
-        >
-          {content}
-        </div>
-      ) : (
-        movCar
-      )}
-      <button
-        onClick={() => dispatch(fetchMovies(movies.length))}
-        className="stdButton"
-      >
-        fetch more
+      {showMovCar ? <div className="grid">{content}</div> : movCar}
+      <button onClick={() => dispatch(fetchMovies(movies.length))}>
+        Load more movies
       </button>
     </section>
   )

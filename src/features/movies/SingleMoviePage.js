@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import ErrorMessage from '../../components/ErrorMessage'
 import { selectMovieById, fetchMovies } from './moviesSlice'
-import '../../components/buttons.css'
 import { Spinner } from '../../components/Spinner'
+import { Link } from 'react-router-dom'
 
 export const SingleMoviePage = ({ match }) => {
   const { movieId } = match.params
@@ -41,6 +41,9 @@ export const SingleMoviePage = ({ match }) => {
 
   return (
     <>
+      <Link to="/">
+        <button>Go back to browse movies</button>
+      </Link>
       <div className="movie">
         <h2 style={{ textAlign: 'center' }}>{movie.title}</h2>
 
