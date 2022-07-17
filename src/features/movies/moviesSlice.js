@@ -10,6 +10,7 @@ export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
   async (numberOfMoviesFetched) => {
     console.log(numberOfMoviesFetched)
+
     const response = await fetch(
       `https://davidronnlidmovies.netlify.app/.netlify/functions/api?page=${
         1 + numberOfMoviesFetched / 20

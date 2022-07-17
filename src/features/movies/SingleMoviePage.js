@@ -1,19 +1,41 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import ErrorMessage from '../../components/ErrorMessage'
-import { selectMovieById } from './moviesSlice'
-
+import { selectMovieById, fetchMovies } from './moviesSlice'
 import '../../components/buttons.css'
+import { Spinner } from '../../components/Spinner'
 
 export const SingleMoviePage = ({ match }) => {
   const { movieId } = match.params
 
   const movie = useSelector((state) => selectMovieById(state, movieId))
+  const error = useSelector((state) => state.movies.error)
 
-  console.log("Movie:", movie)
+  const dispatch = useDispatch()
 
-  if (!movie) {
-    console.log("SMP !movie log of movie var", movie)
+  const movieStatus = useSelector((state) => state.movies.status)
+  const pageOfThisMovieInAPI = 0
+
+  useEffect(() => {
+    if (movieStatus === 'idle') {
+      dispatch(fetchMovies(pageOfThisMovieInAPI))
+    }
+  }, [movieStatus, dispatch])
+
+  console.log('Movie:', movie)
+
+  if (!movie || movieStatus === 'loading') {
+    return <Spinner />
+  }
+
+  if (movieStatus === 'failed') {
+    console.log(
+      'Single Movie Page log of movie var',
+      movie,
+      'and related error message:',
+      error
+    )
+
     return <ErrorMessage />
   }
 

@@ -42,15 +42,13 @@ export const MoviesList = () => {
   const [showMovCar, setShowMovCar] = useState(true)
   const toggleshowMovCar = () => setShowMovCar((showMovCar) => !showMovCar)
 
-  // const moviesFetchedLength = movies.length
-
   const handleScroll = (onScroll) => {
-    console.log(
-      onScroll.target,
-      onScroll.target.scrollHeight,
-      onScroll.target.scrollTop,
-      onScroll.target.getBoundingClientRect()
-    )
+    // console.log(
+    //   onScroll.target,
+    //   onScroll.target.scrollHeight,
+    //   onScroll.target.scrollTop,
+    //   onScroll.target.getBoundingClientRect()
+    // )
 
     if (onScroll.target.scrollTop > 1000) {
       dispatch(fetchMovies(movies.length))
