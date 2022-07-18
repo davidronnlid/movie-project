@@ -4,41 +4,28 @@ import { MoviesList } from './features/movies/MoviesList'
 import { SingleMoviePage } from './features/movies/SingleMoviePage'
 import ErrorMessage from './components/ErrorMessage'
 import Footer from './components/footer'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
-
-const theme = createTheme({
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          color: 'var(--first-color)',
-          background: 'var(--second-color)',
-        },
-      },
-    },
-  },
-})
+import BackToTop from './components/topScroll'
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <React.Fragment>
-                <MoviesList />
-              </React.Fragment>
-            )}
-          />
-          <Route exact path="/movies/:movieId" component={SingleMoviePage} />
-          <Route path="*" component={ErrorMessage} />
-        </Switch>
-        <Footer />
-      </Router>
-    </ThemeProvider>
+    <Router>
+      <span id="back-to-top-anchor"></span>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <React.Fragment>
+              <MoviesList />
+            </React.Fragment>
+          )}
+        />
+        <Route exact path="/movies/:movieId" component={SingleMoviePage} />
+        <Route path="*" component={ErrorMessage} />
+      </Switch>
+      <BackToTop />
+      <Footer />
+    </Router>
   )
 }
 

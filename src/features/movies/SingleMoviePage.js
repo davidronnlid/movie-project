@@ -49,10 +49,9 @@ export const SingleMoviePage = ({ match }) => {
         <HomeIcon
           sx={{
             fontSize: '7vw',
-            position: 'absolute',
+            ml: 3,
+            mt: 3,
             color: 'var(--second-color)',
-            right: 0,
-            top: 0,
           }}
         />
       </Link>

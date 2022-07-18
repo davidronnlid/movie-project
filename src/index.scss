@@ -2,7 +2,7 @@
 
 :root {
   --first-color: #173d52;
-  --second-color: #d3e8f3;
+  --second-color: #e0e0e0;
   --third-color: #0d2430;
   --fourth-color: #d2904f;
   --second-color-rgb: 211 232 243;
@@ -12,6 +12,7 @@
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
   --text-color: var(--second-color);
+  --buton-color: #1976d2;
 }
 
 body {
@@ -20,9 +21,6 @@ body {
   overflow-x: hidden;  
   margin: 0;
   background-color: var(--first-color);
-}
-html {
-max-width: 100vw;
 }
 
 .footerIcon {
@@ -39,3 +37,6 @@ max-width: 100vw;
   font-style: italic;
 }
 
+#back-to-top-anchor {
+  display: hidden;
+}
