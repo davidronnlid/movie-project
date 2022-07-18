@@ -4,10 +4,24 @@ import { MoviesList } from './features/movies/MoviesList'
 import { SingleMoviePage } from './features/movies/SingleMoviePage'
 import ErrorMessage from './components/ErrorMessage'
 import Footer from './components/footer'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+
+const theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: 'var(--first-color)',
+          background: 'var(--second-color)',
+        },
+      },
+    },
+  },
+})
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Router>
         <Switch>
           <Route
@@ -24,7 +38,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>
-    </>
+    </ThemeProvider>
   )
 }
 
