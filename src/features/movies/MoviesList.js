@@ -9,24 +9,27 @@ import {
 import { Spinner } from '../../components/Spinner'
 import MoviesCarousel from './moviesCarousel'
 import Grid from '@mui/material/Grid'
-import './movies.css'
+import Box from '@mui/material/Box'
+import './movies.scss'
 
 const MostPopularMovie = ({ movie }) => {
   console.log(movie, '/most pop..')
   return (
     <Grid item xs={12}>
-      <Grid container direction="column" className="imgContainer">
-        <Grid item xs={6}>
-          {movie.title}
-        </Grid>
-        <Grid item>
+      <Link to={`/movies/${movie.id}`}>
+        <Box className="parent">
           <img
+            className="image1"
+            alt="img 1"
             src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
-            alt="Secondary movie poster"
-            className="mostPopMovie"
           />
-        </Grid>
-      </Grid>
+          <img
+            className="image2"
+            alt="img 2"
+            src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
+          />
+        </Box>
+      </Link>
     </Grid>
   )
 }
@@ -62,7 +65,6 @@ export const MoviesList = () => {
   const highestPopularity = useSelector(selectHighestPopularity)
 
   useEffect(() => {
-    console.log(highestPopularity)
     if (movieStatus === 'idle') {
       dispatch(fetchMovies(movies.length))
     }
