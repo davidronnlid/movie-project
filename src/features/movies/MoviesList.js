@@ -96,7 +96,7 @@ export const MoviesList = () => {
       </Grid>
       <Button
         variant="contained"
-        sx={{ my: 4 }}
+        sx={{ my: 4, mx: 'auto' }}
         onClick={() => dispatch(fetchMovies(movies.length))}
       >
         Load more movies

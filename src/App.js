@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { MoviesList } from './features/movies/MoviesList'
 import { SingleMoviePage } from './features/movies/SingleMoviePage'
 import ErrorMessage from './components/ErrorMessage'
+import Footer from './components/footer'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="*" component={ErrorMessage} />
         </Switch>
       </Router>
+      <Footer />
     </>
   )
 }

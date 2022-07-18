@@ -28,6 +28,10 @@
 .movieListContainer{
   width: 80vw;
   margin: 0 auto;
+
+  & button {
+    align-items: center;
+  }
 }
 
 .movieInList {
