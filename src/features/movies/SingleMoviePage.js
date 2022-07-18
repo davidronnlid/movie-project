@@ -26,8 +26,6 @@ export const SingleMoviePage = ({ match }) => {
     }
   }, [movieStatus, dispatch])
 
-  console.log('Movie:', movie)
-
   if (!movie || movieStatus === 'loading') {
     return <Spinner />
   }
@@ -46,17 +44,12 @@ export const SingleMoviePage = ({ match }) => {
   return (
     <>
       <Link to="/">
-        <HomeIcon
-          sx={{
-            fontSize: '7vw',
-            ml: 3,
-            mt: 3,
-            color: 'var(--second-color)',
-          }}
-        />
+        <HomeIcon className="homeIcon" />
       </Link>
       <div className="movie">
-        <h2 style={{ textAlign: 'center' }}>{movie.title}</h2>
+        <Typography variant="h3" sx={{ textAlign: 'center' }}>
+          {movie.title}
+        </Typography>
 
         <img
           src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
@@ -69,7 +62,7 @@ export const SingleMoviePage = ({ match }) => {
           <b>No. of ratings:</b> {movie.vote_count}
           <br /> <b>Average rating:</b> {movie.vote_average} / 10
         </p>
-        <p>
+        <p style={{ width: '80%', margin: '1rem auto' }}>
           <b>Overview:</b> {movie.overview}
         </p>
         <img

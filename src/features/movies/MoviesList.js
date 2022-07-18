@@ -11,27 +11,47 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import './movies.scss'
+import { Typography } from '@mui/material'
 
 const MostPopularMovie = ({ movie }) => {
   console.log(movie, '/most pop..')
   return (
     <Grid item xs={12}>
-      <Link to={`/movies/${movie.id}`}>
-        <Box className="mostPopMovieContainer">
+      <Link to={`/movies/${movie.id}`} className="mostPopMovLink">
+        <Box className="mostPopMovContainer">
           <img
-            className="mostPopMovieSecondaryPoster"
+            className="mostPopMovSecondaryPoster"
             alt="Secondary movie poster"
             src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
           />
           <Box sx={{ boxShadow: 3 }}>
             <img
-              className="mostPopMoviePrimaryPoster"
+              className="mostPopMovPrimaryPoster"
               alt="Primary movie poster"
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
             />
           </Box>
-        </Box>
+        </Box>{' '}
       </Link>
+      <Typography
+        variant="h6"
+        className="mostPopMovSubTitle"
+        sx={{ fontFamily: "'Caveat', cursive", pl: 0.3 }}
+      >
+        ... is currently the most popular movie! &#128192;&#128285;
+      </Typography>
+      <Typography
+        variant="h2"
+        className="mostPopMovSubTitle"
+        sx={{
+          mb: -3,
+          background: 'var(--third-color)',
+          p: 2,
+          borderRadius: '0.3rem',
+        }}
+      >
+        Other currently popular movies
+      </Typography>
     </Grid>
   )
 }
