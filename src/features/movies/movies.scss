@@ -38,26 +38,6 @@
   }
 }
 
-.movieInList {
-  color: var(--text-color);
-  width: 22vw;
-}
-
-
-.movie {
-  background-color: var(--third-color);
-  color: var(--text-color);
-  width: 80vw;
-  margin: 0 auto;
-}
-
-// Single Movie Page
-.homeIcon {
-  margin-left: 1rem;
-  margin-top: 1rem;
-  font-size: 7vw;
-  color: var(--second-color);
-}
 .moviePoster {
   display: block;
   margin-left: auto;
@@ -67,6 +47,37 @@
   width: 100%;
 }
 
+.movieInList {
+  color: var(--text-color);
+  width: 22vw;
+}
+
+
+
+
+// Single Movie Page
+.homeIcon {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: 7vw;
+  color: var(--second-color);
+}
+
+.singleMovieContainer {
+  background: var(--third-color);
+  border-radius: 1rem;
+}
+
+.movie {
+  color: var(--text-color);
+  width: 80vw;
+  margin: 0 auto;
+}
+
+
+.secondaryMovieImg {
+  width: 100%;
+}
 
 .flickityCarousel {
   margin: 0 auto;
