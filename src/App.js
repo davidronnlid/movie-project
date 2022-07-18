@@ -22,8 +22,8 @@ function App() {
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
           <Route path="*" component={ErrorMessage} />
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
     </>
   )
 }

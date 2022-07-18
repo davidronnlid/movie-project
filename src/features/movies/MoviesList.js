@@ -31,11 +31,6 @@ const MostPopularMovie = ({ movie }) => {
             />
           </Box>
         </Box>
-        {/* <Box className="mostPopMovieTitle">
-          MOST POPULAR:
-          <br />
-          {movie.title}
-        </Box> */}
       </Link>
     </Grid>
   )
@@ -96,7 +91,10 @@ export const MoviesList = () => {
       </Grid>
       <Button
         variant="contained"
-        sx={{ my: 4, mx: 'auto' }}
+        sx={{
+          my: 4,
+          mx: 'auto',
+        }}
         onClick={() => dispatch(fetchMovies(movies.length))}
       >
         Load more movies

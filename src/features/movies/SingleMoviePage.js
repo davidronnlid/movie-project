@@ -45,10 +45,14 @@ export const SingleMoviePage = ({ match }) => {
 
   return (
     <>
-      <Link to="/" className="appTitles">
+      <Link to="/">
         <HomeIcon
           sx={{
             fontSize: '7vw',
+            position: 'absolute',
+            color: 'var(--second-color)',
+            right: 0,
+            top: 0,
           }}
         />
       </Link>
@@ -75,7 +79,10 @@ export const SingleMoviePage = ({ match }) => {
           className="secondaryMovieImg"
         />
       </div>
-      <Typography variant="h4" sx={{ color: 'var(--text-color)' }}>
+      <Typography
+        variant="h4"
+        sx={{ color: 'var(--text-color)', my: 4, ml: '10vw' }}
+      >
         Other popular movies:
       </Typography>
       <MoviesCarousel movies={movies} />
