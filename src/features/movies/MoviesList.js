@@ -7,9 +7,9 @@ import {
   fetchMovies,
 } from './moviesSlice'
 import { Spinner } from '../../components/Spinner'
-import MoviesCarousel from './moviesCarousel'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import './movies.scss'
 
 const MostPopularMovie = ({ movie }) => {
@@ -17,18 +17,25 @@ const MostPopularMovie = ({ movie }) => {
   return (
     <Grid item xs={12}>
       <Link to={`/movies/${movie.id}`}>
-        <Box className="parent">
+        <Box className="mostPopMovieContainer">
           <img
-            className="image1"
-            alt="img 1"
+            className="mostPopMovieSecondaryPoster"
+            alt="Secondary movie poster"
             src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
           />
-          <img
-            className="image2"
-            alt="img 2"
-            src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
-          />
+          <Box sx={{ boxShadow: 3 }}>
+            <img
+              className="mostPopMoviePrimaryPoster"
+              alt="Primary movie poster"
+              src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
+            />
+          </Box>
         </Box>
+        {/* <Box className="mostPopMovieTitle">
+          MOST POPULAR:
+          <br />
+          {movie.title}
+        </Box> */}
       </Link>
     </Grid>
   )
@@ -42,12 +49,14 @@ const MovieInList = ({ movie, mostPopular }) => {
       {mostPopular ? (
         <MostPopularMovie movie={movie} />
       ) : (
-        <Grid item xs={4} className="movieInList" key={movie.id}>
+        <Grid item xs={6} md={4} className="movieInList" key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
-            <img
+            <Box
+              component={'img'}
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
               alt="Movie poster"
               className="moviePoster"
+              boxShadow={5}
             />
           </Link>
         </Grid>
@@ -71,12 +80,12 @@ export const MoviesList = () => {
   }, [movieStatus, dispatch, movies.length])
 
   return (
-    <>
+    <Box className="movieListContainer">
       {movieStatus === 'loading' ? <Spinner text="Loading..." /> : null}
       {movieStatus === 'failed' ? (
         <div>{console.log(error) && error}</div>
       ) : null}
-      <Grid container spacing={2} className="moviesListContainer">
+      <Grid container spacing={6}>
         {movies.map((movie) =>
           highestPopularity === movie.popularity ? (
             <MovieInList key={movie.id} movie={movie} mostPopular={true} />
@@ -85,10 +94,13 @@ export const MoviesList = () => {
           )
         )}
       </Grid>
-      <button onClick={() => dispatch(fetchMovies(movies.length))}>
+      <Button
+        variant="contained"
+        sx={{ my: 4 }}
+        onClick={() => dispatch(fetchMovies(movies.length))}
+      >
         Load more movies
-      </button>
-      <MoviesCarousel movies={movies} />
-    </>
+      </Button>
+    </Box>
   )
 }

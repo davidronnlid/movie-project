@@ -1,63 +1,45 @@
 /* movies list */
-.movie h2 {
-  font-size: 2.5rem;
-  margin-bottom: 5px;
-  color: var(--text-color);
-}
+.mostPopMovieContainer {
+  position: relative;}
 
-.movieInList {
-  padding: 0 0 0.15rem 0;
-  margin: 10px 10px 0 0;
-  border-radius: 7px;
-  text-align: center;
-  background: var(--first-color);
-  color: var(--text-color);
+.mostPopMovieSecondaryPoster {
+  position: relative;
+  top: 0;
+  left: -10vw;
+  width: 100vw;
+  z-index: -2;
+}
+.mostPopMoviePrimaryPoster {
+  position: absolute;
+  bottom: 3vh;
+  left: -5vw;
+  width: 22vw;
+  border: 1px var(--second-color) solid;
+  border-radius: 0.3rem;
   box-shadow: var(--std-bs);
-  padding-bottom: 10px;
-  overflow: hidden;
 }
 
-.moviesListContainer {
-  width:100vw
-}
-
-.movie {
-  padding: 15px;
-  background-color: var(--third-color);
+.mostPopMovieTitle {
   color: var(--text-color);
+  padding: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.movieListContainer{
   width: 80vw;
   margin: 0 auto;
 }
 
-.parent {
-  position: relative;
-  top: 0;
-  left: 0;
-  
-  background: linear-gradient(to left, rgba(255,0,0,0), rgba(0, 0, 0, 0.425));
-  background: -moz-linear-gradient(right, rgba(255,0,0,0), rgba(0, 0, 0, 0.425));
-  background: -webkit-linear-gradient(right, rgba(255,0,0,0), rgba(0, 0, 0, 0.425));
-  background: -o-linear-gradient(right, rgba(255,0,0,0), rgba(0, 0, 0, 0.425));
-  background: -ms-linear-gradient(right, rgba(255,0,0,0), rgba(0, 0, 0, 0.425));
-
-  &:hover {
-    background: linear-gradient(to left, rgba(255,0,0,0), rgba(0, 0, 0, 0));
-  }
+.movieInList {
+  color: var(--text-color);
+  width: 22vw;
 }
 
-.image1 {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -2;
-}
-.image2 {
-  position: absolute;
-  bottom: 5vh;
-  left: 5vw;
-  width: 20vw;
-  border: 1px var(--second-color) solid;
+.movie {
+  background-color: var(--third-color);
+  color: var(--text-color);
+  width: 80vw;
+  margin: 0 auto;
 }
 
 .smallInfo {

@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import ErrorMessage from '../../components/ErrorMessage'
-import { selectMovieById, fetchMovies } from './moviesSlice'
+import { selectMovieById, selectAllMovies, fetchMovies } from './moviesSlice'
 import { Spinner } from '../../components/Spinner'
 import { Link } from 'react-router-dom'
+import HomeIcon from '@mui/icons-material/Home'
+import MoviesCarousel from './moviesCarousel'
+import { Typography } from '@mui/material'
 
 export const SingleMoviePage = ({ match }) => {
   const { movieId } = match.params
 
   const movie = useSelector((state) => selectMovieById(state, movieId))
   const error = useSelector((state) => state.movies.error)
+  const movies = useSelector(selectAllMovies)
 
   const dispatch = useDispatch()
 
@@ -41,8 +45,12 @@ export const SingleMoviePage = ({ match }) => {
 
   return (
     <>
-      <Link to="/">
-        <button>Go back to browse movies</button>
+      <Link to="/" className="appTitles">
+        <HomeIcon
+          sx={{
+            fontSize: '7vw',
+          }}
+        />
       </Link>
       <div className="movie">
         <h2 style={{ textAlign: 'center' }}>{movie.title}</h2>
@@ -67,6 +75,10 @@ export const SingleMoviePage = ({ match }) => {
           className="secondaryMovieImg"
         />
       </div>
+      <Typography variant="h4" sx={{ color: 'var(--text-color)' }}>
+        Other popular movies:
+      </Typography>
+      <MoviesCarousel movies={movies} />
     </>
   )
 }

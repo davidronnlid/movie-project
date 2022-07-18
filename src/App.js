@@ -6,21 +6,23 @@ import ErrorMessage from './components/ErrorMessage'
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <React.Fragment>
-              <MoviesList />
-            </React.Fragment>
-          )}
-        />
-        <Route exact path="/movies/:movieId" component={SingleMoviePage} />
-        <Route path="*" component={ErrorMessage} />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <React.Fragment>
+                <MoviesList />
+              </React.Fragment>
+            )}
+          />
+          <Route exact path="/movies/:movieId" component={SingleMoviePage} />
+          <Route path="*" component={ErrorMessage} />
+        </Switch>
+      </Router>
+    </>
   )
 }
 
