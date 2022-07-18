@@ -10,7 +10,6 @@ import { Spinner } from '../../components/Spinner'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
 import './movies.scss'
 
 const MostPopularMovie = ({ movie }) => {
