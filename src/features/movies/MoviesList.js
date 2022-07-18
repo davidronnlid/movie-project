@@ -12,6 +12,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import './movies.scss'
 import { Typography } from '@mui/material'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 const MostPopularMovie = ({ movie }) => {
   console.log(movie, '/most pop..')
@@ -35,19 +36,25 @@ const MostPopularMovie = ({ movie }) => {
       </Link>
       <Typography
         variant="h6"
-        className="mostPopMovSubTitle"
-        sx={{ fontFamily: "'Caveat', cursive", pl: 0.3 }}
+        sx={{
+          fontFamily: "'Caveat', cursive",
+          p: 3,
+          pl: 0.3,
+          color: 'var(--text-color)',
+        }}
       >
         ... is currently the most popular movie! &#128192;&#128285;
       </Typography>
       <Typography
         variant="h2"
-        className="mostPopMovSubTitle"
         sx={{
           mb: -3,
           background: 'var(--third-color)',
-          p: 2,
+          color: 'var(--text-color)',
+          p: 3,
           borderRadius: '0.3rem',
+          fontFamily: "'Roboto Condensed', sans-serif",
+          boxShadow: 3,
         }}
       >
         Other currently popular movies
@@ -88,6 +95,8 @@ export const MoviesList = () => {
   const error = useSelector((state) => state.movies.error)
   const highestPopularity = useSelector(selectHighestPopularity)
 
+  const smallScreen = useMediaQuery('(min-width:600px)')
+
   useEffect(() => {
     if (movieStatus === 'idle') {
       dispatch(fetchMovies(movies.length))
@@ -100,7 +109,7 @@ export const MoviesList = () => {
       {movieStatus === 'failed' ? (
         <div>{console.log(error) && error}</div>
       ) : null}
-      <Grid container spacing={6}>
+      <Grid container spacing={smallScreen ? 8 : 5}>
         {movies.map((movie) =>
           highestPopularity === movie.popularity ? (
             <MovieInList key={movie.id} movie={movie} mostPopular={true} />
