@@ -22,22 +22,20 @@ export default function SimpleBottomNavigation() {
                 sx={{
                     background: "var(--third-color)", height: "100%",
                     boxShadow: "0px -4px 3px rgba(50, 50, 50, 0.75)"
-                }}
-            >
-                <Tooltip title="This product uses the TMDB API but is not endorsed or certified by TMDB.">
-                    <BottomNavigationAction
-                        sx={{ color: "var(--text-color)" }}
-                        label="This product uses the TMDB API but is not endorsed or certified by TMDB." icon={
-                            <img alt="TMDB logo" src={TMDB} className="footerIcon" />
-                        } />
-                </Tooltip>
+                }}>
+                <BottomNavigationAction
+                    sx={{ color: "var(--text-color)", cursor: "default" }}
+                    label="This product uses the TMDB API but is not endorsed or certified by TMDB." icon={
+                        <img alt="TMDB logo" src={TMDB} className="footerIcon" />
+                    } />
+
                 <Tooltip title="Go to Davids portfolio">
                     <Link href="https://davidronnlidportfolio.netlify.app/"><BottomNavigationAction icon={
-                        <img alt="he" src={DRConfTransparent} className="footerIcon" />
+                        <img alt="David Rönnlid smiling confidently" src={DRConfTransparent} className="footerIcon dRSC" />
                     } /></Link>
                 </Tooltip>
 
-            </BottomNavigation>
+            </BottomNavigation >
         </Box >
     );
 }
