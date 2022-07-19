@@ -66,7 +66,7 @@ export const SingleMoviePage = ({ match }) => {
         }}
       >
         <Grid container spacing={2}>
-          <Grid item sm={12}>
+          <Grid item sm={12} sx={{ width: '100%' }}>
             <Typography
               variant="h3"
               sx={{

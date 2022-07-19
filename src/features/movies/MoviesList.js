@@ -117,7 +117,7 @@ export const MoviesList = () => {
       ) : null}
       <Grid container spacing={smallScreen ? 8 : 5}>
         {movies.map((movie) =>
-          highestPopularity === movie.popularity ? (
+          console.log(movie) && highestPopularity === movie.popularity ? (
             <MovieInList key={movie.id} movie={movie} mostPopular={true} />
           ) : (
             <MovieInList key={movie.id} movie={movie} mostPopular={false} />
