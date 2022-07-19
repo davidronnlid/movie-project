@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import ErrorMessage from '../../components/ErrorMessage'
 import { selectMovieById, selectAllMovies, fetchMovies } from './moviesSlice'
 import { Spinner } from '../../components/Spinner'
 import { Link } from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home'
-import MoviesCarousel from './moviesCarousel'
 import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
+
+const MoviesCarousel = React.lazy(() => import('./moviesCarousel'))
 
 export const SingleMoviePage = ({ match }) => {
   const { movieId } = match.params
@@ -18,7 +19,6 @@ export const SingleMoviePage = ({ match }) => {
   const movies = useSelector(selectAllMovies)
 
   const smallScreen = useMediaQuery('(max-width:600px)')
-  const mediumScreen = useMediaQuery('(max-width:800px)')
 
   const dispatch = useDispatch()
 
@@ -119,11 +119,19 @@ export const SingleMoviePage = ({ match }) => {
       </Box>
       <Typography
         variant="h4"
-        sx={{ color: 'var(--text-color)', my: 4, ml: '10vw' }}
+        sx={{
+          color: 'var(--third-color)',
+          background: 'var(--second-color)',
+          paddingLeft: '10vw',
+          py: 3,
+          boxShadow: '0px -4px 3px rgb(50 50 50 / 75%)',
+        }}
       >
         Other popular movies:
-      </Typography>
-      <MoviesCarousel movies={movies} />
+      </Typography>{' '}
+      <Suspense fallback={<Spinner />}>
+        <MoviesCarousel movies={movies} />
+      </Suspense>
     </>
   )
 }
