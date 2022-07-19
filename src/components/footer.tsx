@@ -21,7 +21,6 @@ export default function SimpleBottomNavigation() {
                 }}
                 sx={{
                     background: "var(--third-color)", height: "100%",
-                    boxShadow: "0px -4px 3px rgba(50, 50, 50, 0.75)"
                 }}>
                 <BottomNavigationAction
                     sx={{ color: "var(--text-color)", cursor: "default" }}

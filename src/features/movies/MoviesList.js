@@ -46,7 +46,6 @@ const MostPopularMovie = ({ movie }) => {
           p: 3,
           pl: 0.3,
           color: 'var(--text-color)',
-          boxShadow: 3,
         }}
       >
         ... is currently the most popular movie! &#128192;
