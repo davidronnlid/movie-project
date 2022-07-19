@@ -21,8 +21,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <span id="back-to-top-anchor"></span>
         <HideAppBar />
+        <span id="back-to-top-anchor"></span>
+
         <Switch>
           <Route
             exact
