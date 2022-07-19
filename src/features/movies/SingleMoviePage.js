@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import ErrorMessage from '../../components/ErrorMessage'
 import { selectMovieById, selectAllMovies, fetchMovies } from './moviesSlice'
 import Spinner from '../../components/Spinner.tsx'
-import { Link } from 'react-router-dom'
-import HomeIcon from '@mui/icons-material/Home'
 import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -49,12 +47,6 @@ export const SingleMoviePage = ({ match }) => {
 
   return (
     <>
-      <Link to="/">
-        <HomeIcon
-          className="homeIcon"
-          sx={{ fontSize: smallScreen ? '8vw' : '5vw' }}
-        />
-      </Link>
       <Box className="singleMovBoxContainer">
         <Grid container spacing={2} className="singleMovGridContainer">
           <Grid item sm={12} sx={{ width: '100%' }}>

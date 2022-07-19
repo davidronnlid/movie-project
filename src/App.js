@@ -10,6 +10,7 @@ import {
   ThemeProvider,
   responsiveFontSizes,
 } from '@mui/material/styles'
+import HideAppBar from './components/header'
 
 import 'react-lazy-load-image-component/src/effects/blur.css'
 
@@ -21,6 +22,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <span id="back-to-top-anchor"></span>
+        <HideAppBar />
         <Switch>
           <Route
             exact
