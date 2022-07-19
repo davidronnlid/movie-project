@@ -11,6 +11,8 @@ import {
   responsiveFontSizes,
 } from '@mui/material/styles'
 
+import 'react-lazy-load-image-component/src/effects/blur.css'
+
 function App() {
   let theme = createTheme()
   theme = responsiveFontSizes(theme)

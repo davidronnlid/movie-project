@@ -6,22 +6,24 @@ import {
   selectHighestPopularity,
   fetchMovies,
 } from './moviesSlice'
-import { Spinner } from '../../components/Spinner'
+import Spinner from '../../components/Spinner.tsx'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import './movies.scss'
 import { Typography } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const MostPopularMovie = ({ movie }) => {
   console.log(movie, '/most pop..')
   return (
     <Grid item xs={12}>
       <Box className="mostPopMovContainer">
-        <img
+        <LazyLoadImage
           className="mostPopMovSecondaryPoster"
           alt="Secondary movie poster"
+          effect="blur"
           loading="lazy"
           src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
         />
@@ -34,7 +36,7 @@ const MostPopularMovie = ({ movie }) => {
               loading="lazy"
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
             />
-          </Box>{' '}
+          </Box>
         </Link>
       </Box>{' '}
       <Typography
@@ -76,8 +78,8 @@ const MovieInList = ({ movie, mostPopular }) => {
       ) : (
         <Grid item xs={6} md={4} className="movieInList" key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
-            <Box
-              component={'img'}
+            <LazyLoadImage
+              effect="blur"
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
               alt="Movie poster"
               loading="lazy"

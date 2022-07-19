@@ -31,7 +31,8 @@
 }
 
 .homePageMoviePoster {
-  transition: transform 250ms;
+  transition: transform 290ms !important;
+  border-radius: 0.3rem;
 
   &:hover {
     transform: scale(1.02, 1.02);
@@ -49,11 +50,6 @@
 }
 
 .moviePoster {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: -15px;
-  border-radius: 5px;
   width: 100%;
 }
 

@@ -2,12 +2,13 @@ import React, { useEffect, Suspense } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import ErrorMessage from '../../components/ErrorMessage'
 import { selectMovieById, selectAllMovies, fetchMovies } from './moviesSlice'
-import { Spinner } from '../../components/Spinner'
+import Spinner from '../../components/Spinner.tsx'
 import { Link } from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home'
 import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const MoviesCarousel = React.lazy(() => import('./moviesCarousel'))
 
@@ -32,7 +33,7 @@ export const SingleMoviePage = ({ match }) => {
   }, [movieStatus, dispatch])
 
   if (!movie || movieStatus === 'loading') {
-    return <Spinner />
+    return <Spinner text="Loading..." />
   }
 
   if (movieStatus === 'failed') {
@@ -79,11 +80,11 @@ export const SingleMoviePage = ({ match }) => {
             </Typography>
           </Grid>
           <Grid item sm={6}>
-            <img
+            <LazyLoadImage
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
               alt="Primary movie poster"
               className="primaryMovPoster"
-              loading="lazy"
+              effect="blur"
               style={{
                 borderBottomLeftRadius: smallScreen ? '1rem' : 0,
                 borderBottomRightRadius: smallScreen ? '1rem' : 0,
@@ -106,11 +107,11 @@ export const SingleMoviePage = ({ match }) => {
             >
               <b>Overview:</b> {movie.overview}
             </Typography>
-            <img
+            <LazyLoadImage
               src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
               alt="Secondary movie poster"
               className="secondaryMovieImg"
-              loading="lazy"
+              effect="blur"
               style={{
                 borderBottomLeftRadius: smallScreen ? '1rem' : 0,
                 borderBottomRightRadius: smallScreen ? '1rem' : 0,
@@ -131,7 +132,7 @@ export const SingleMoviePage = ({ match }) => {
       >
         Other popular movies:
       </Typography>{' '}
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner text="Loading..." />}>
         <MoviesCarousel movies={movies} />
       </Suspense>
     </>
