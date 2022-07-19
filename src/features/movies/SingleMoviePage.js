@@ -56,7 +56,7 @@ export const SingleMoviePage = ({ match }) => {
         />
       </Link>
       <Box
-        className="singleMovieContainer"
+        className="singleMovBoxContainer"
         sx={{
           borderBottomLeftRadius: smallScreen ? '1rem' : 0,
           borderBottomRightRadius: smallScreen ? '1rem' : 0,
@@ -65,7 +65,7 @@ export const SingleMoviePage = ({ match }) => {
           boxShadow: 3,
         }}
       >
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className="singleMovGridContainer">
           <Grid item sm={12} sx={{ width: '100%' }}>
             <Typography
               variant="h3"
@@ -88,6 +88,7 @@ export const SingleMoviePage = ({ match }) => {
               style={{
                 borderBottomLeftRadius: smallScreen ? '1rem' : 0,
                 borderBottomRightRadius: smallScreen ? '1rem' : 0,
+                height: '100%',
               }}
             />
           </Grid>
