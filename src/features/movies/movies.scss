@@ -20,13 +20,23 @@
   bottom: 3vh;
   left: 5vw;
   width: 22vw;
-  border: 1px var(--second-color) solid;
+  border: 3px solid rgba(211, 232, 243, 1);
   border-radius: 0.3rem;
-  box-shadow: var(--std-bs);
+  box-shadow: rgba(211, 232, 243, 0.5) 0px 3px 6px, rgb(211, 232, 243, 0.5) 0px 3px 6px;
 }
+
 
 .mostPopMovLink {
   text-decoration: none;
+}
+
+.homePageMoviePoster {
+  transition: transform 250ms;
+
+  &:hover {
+    transform: scale(1.02, 1.02);
+    -webkit-transform: scale(1.02, 1.02);
+  }
 }
 
 .movieListContainer{
@@ -51,9 +61,6 @@
   color: var(--text-color);
   width: 22vw;
 }
-
-
-
 
 // Single Movie Page
 .homeIcon {

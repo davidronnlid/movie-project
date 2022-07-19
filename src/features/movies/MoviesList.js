@@ -18,22 +18,23 @@ const MostPopularMovie = ({ movie }) => {
   console.log(movie, '/most pop..')
   return (
     <Grid item xs={12}>
-      <Link to={`/movies/${movie.id}`} className="mostPopMovLink">
-        <Box className="mostPopMovContainer">
-          <img
-            className="mostPopMovSecondaryPoster"
-            alt="Secondary movie poster"
-            src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
-          />
+      <Box className="mostPopMovContainer">
+        <img
+          className="mostPopMovSecondaryPoster"
+          alt="Secondary movie poster"
+          src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+        />
+        <Link to={`/movies/${movie.id}`} className="mostPopMovLink ">
+          {' '}
           <Box sx={{ boxShadow: 3 }}>
             <img
-              className="mostPopMovPrimaryPoster"
+              className="mostPopMovPrimaryPoster homePageMoviePoster"
               alt="Primary movie poster"
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
             />
-          </Box>
-        </Box>{' '}
-      </Link>
+          </Box>{' '}
+        </Link>
+      </Box>{' '}
       <Typography
         variant="h6"
         sx={{
@@ -77,7 +78,7 @@ const MovieInList = ({ movie, mostPopular }) => {
               component={'img'}
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
               alt="Movie poster"
-              className="moviePoster"
+              className="moviePoster homePageMoviePoster"
               boxShadow={5}
             />
           </Link>
