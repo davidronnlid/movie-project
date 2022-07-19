@@ -5,8 +5,8 @@ import {
   selectAllMovies,
   selectHighestPopularity,
   fetchMovies,
-} from './moviesSlice'
-import Spinner from '../../components/Spinner.tsx'
+} from '../../redux/moviesSlice'
+import Spinner from '../../components/Spinner'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -14,8 +14,12 @@ import './movies.scss'
 import { Typography } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MoviesProps, MovieProps } from '../../types/movieTypes'
+import { RootState } from '../../redux/moviesSlice'
 
-const MostPopularMovie = ({ movie }) => {
+const MostPopularMovie = (props: { movie: MovieProps }) => {
+  const movie = props.movie;
+
   console.log(movie, '/most pop..')
   return (
     <Grid item xs={12}>
@@ -25,7 +29,7 @@ const MostPopularMovie = ({ movie }) => {
           alt="Secondary movie poster"
           effect="blur"
           loading="lazy"
-          src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+          src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path ? movie.backdrop_path : ""}`}
         />
         <Link to={`/movies/${movie.id}`} className="mostPopMovLink ">
           {' '}
@@ -67,7 +71,7 @@ const MostPopularMovie = ({ movie }) => {
   )
 }
 
-const MovieInList = ({ movie, mostPopular }) => {
+const MovieInList = (movie: MovieProps, mostPopular: Boolean) => {
   console.log('MovieInList component log', movie, mostPopular)
 
   return (
@@ -75,7 +79,7 @@ const MovieInList = ({ movie, mostPopular }) => {
       {mostPopular ? (
         <MostPopularMovie movie={movie} />
       ) : (
-        <Grid item xs={6} md={4} className="movieInList" key={movie.id}>
+        <Grid item xs={6} md={4} className="movieInList" >
           <Link to={`/movies/${movie.id}`}>
             <LazyLoadImage
               effect="blur"
@@ -83,7 +87,6 @@ const MovieInList = ({ movie, mostPopular }) => {
               alt="Movie poster"
               loading="lazy"
               className="moviePoster homePageMoviePoster"
-              boxShadow={5}
             />
           </Link>
         </Grid>
@@ -96,8 +99,8 @@ export const MoviesList = () => {
   const dispatch = useDispatch()
   const movies = useSelector(selectAllMovies)
 
-  const movieStatus = useSelector((state) => state.movies.status)
-  const error = useSelector((state) => state.movies.error)
+  const movieStatus = useSelector((state: RootState) => state.status)
+  const error = useSelector((state: RootState) => state.error)
   const highestPopularity = useSelector(selectHighestPopularity)
 
   const smallScreen = useMediaQuery('(min-width:600px)')

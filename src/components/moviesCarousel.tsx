@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Flickity from 'react-flickity-component'
+import { MoviesProps } from "../types/movieTypes"
 
 const flickityOptions = {
   initialIndex: 1,
@@ -11,7 +12,8 @@ const flickityOptions = {
   prevNextButtons: false,
 }
 
-export default function MoviesCarousel(movies) {
+
+export default function MoviesCarousel(movies: MoviesProps) {
   return (
     <Flickity
       elementType={'div'} // default 'div'

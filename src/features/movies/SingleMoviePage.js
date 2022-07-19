@@ -1,14 +1,18 @@
 import React, { useEffect, lazy, Suspense } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import ErrorMessage from '../../components/ErrorMessage'
-import { selectMovieById, selectAllMovies, fetchMovies } from './moviesSlice'
+import ErrorMessage from '../../components/errorMessage'
+import {
+  selectMovieById,
+  selectAllMovies,
+  fetchMovies,
+} from '../../redux/moviesSlice'
 import Spinner from '../../components/Spinner.tsx'
 import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-const MoviesCarousel = lazy(() => import('./moviesCarousel'))
+const MoviesCarousel = lazy(() => import('../../components/moviesCarousel.tsx'))
 
 export const SingleMoviePage = ({ match }) => {
   const { movieId } = match.params
@@ -45,6 +49,7 @@ export const SingleMoviePage = ({ match }) => {
     return <ErrorMessage />
   }
 
+  console.log(movies)
   return (
     <>
       <Box className="singleMovBoxContainer">

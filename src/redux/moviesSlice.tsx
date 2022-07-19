@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { MovieProps } from '../types/movieTypes'
 
 const initialState = {
   moviesState: [],
@@ -8,24 +9,17 @@ const initialState = {
 
 export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
-  async (numberOfMoviesFetched) => {
+  async (numberOfMoviesFetched: number) => {
     console.log(numberOfMoviesFetched)
 
     const response = await fetch(
-      `https://davidronnlidmovies.netlify.app/.netlify/functions/api?page=${
-        1 + numberOfMoviesFetched / 20
+      `https://davidronnlidmovies.netlify.app/.netlify/functions/api?page=${1 + numberOfMoviesFetched / 20
       }`
     ).then((movieData) => {
       return movieData
     })
     const moviesResponseData = await response.json()
-    console.log(
-      'Returned from fetchMovies',
-      moviesResponseData.data.results.sort((a, b) =>
-        a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
-      )
-    )
-    return moviesResponseData.data.results.sort((a, b) =>
+    return moviesResponseData.data.results.sort((a: MovieProps, b: MovieProps) =>
       a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
     )
   }
@@ -65,3 +59,5 @@ export const selectHighestPopularity = (state) =>
     null,
     state.movies.moviesState.map((movie) => movie.popularity)
   )
+
+export type RootState = ReturnType<typeof moviesSlice.reducer>

@@ -3,17 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+
+  & h4 {
+    margin: 5px;
+  }
 }
 
-.spinner h4 {
-  margin: 5px;
-}
-
-/* https://projects.lukehaas.me/css-loaders/ , Loader #3 */
 .loader {
   font-size: 10px;
   margin: 10px;
-  /* text-indent: -9999em; */
   width: 5em;
   height: 5em;
   border-radius: 50%;
@@ -49,32 +48,34 @@
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
+
+  &:before {
+    width: 50%;
+    height: 50%;
+    background: var(--first-color);
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+  
+  &:after {
+    background: var(--second-color);
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
 }
 
-.loader:before {
-  width: 50%;
-  height: 50%;
-  background: var(--first-color);
-  border-radius: 100% 0 0 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-}
-
-.loader:after {
-  background: #ffffff;
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  content: '';
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
 
 @-webkit-keyframes load3 {
   0% {
