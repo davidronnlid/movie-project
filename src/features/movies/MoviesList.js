@@ -44,7 +44,7 @@ const MostPopularMovie = ({ movie }) => {
           color: 'var(--text-color)',
         }}
       >
-        ... is currently the most popular movie! &#128192;&#128285;
+        ... is currently the most popular movie! &#128192;
       </Typography>
       <Typography
         variant="h2"

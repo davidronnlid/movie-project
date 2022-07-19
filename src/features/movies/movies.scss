@@ -63,24 +63,22 @@
 }
 
 // Single Movie Page
-.homeIcon {
-  margin-left: 1rem;
-  margin-top: 1rem;
-  font-size: 7vw;
+.homeIcon {position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
   color: var(--second-color);
 }
 
 .singleMovieContainer {
   background: var(--third-color);
-  border-radius: 1rem;
+    color: var(--text-color);
+    width: 80vw;
+    margin: 4rem auto;
 }
 
-.movie {
-  color: var(--text-color);
-  width: 80vw;
-  margin: 0 auto;
+.primaryMovPoster {
+  width: 100%;
 }
-
 
 .secondaryMovieImg {
   width: 100%;
