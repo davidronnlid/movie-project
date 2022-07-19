@@ -19,7 +19,15 @@ export const fetchMovies = createAsyncThunk(
       return movieData
     })
     const moviesResponseData = await response.json()
-    return moviesResponseData.data.results
+    console.log(
+      'Returned from fetchMovies',
+      moviesResponseData.data.results.sort((a, b) =>
+        a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
+      )
+    )
+    return moviesResponseData.data.results.sort((a, b) =>
+      a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
+    )
   }
 )
 
