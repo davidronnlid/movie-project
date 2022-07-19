@@ -22,6 +22,7 @@ const MostPopularMovie = ({ movie }) => {
         <img
           className="mostPopMovSecondaryPoster"
           alt="Secondary movie poster"
+          loading="lazy"
           src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
         />
         <Link to={`/movies/${movie.id}`} className="mostPopMovLink ">
@@ -30,6 +31,7 @@ const MostPopularMovie = ({ movie }) => {
             <img
               className="mostPopMovPrimaryPoster homePageMoviePoster"
               alt="Primary movie poster"
+              loading="lazy"
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
             />
           </Box>{' '}
@@ -78,6 +80,7 @@ const MovieInList = ({ movie, mostPopular }) => {
               component={'img'}
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
               alt="Movie poster"
+              loading="lazy"
               className="moviePoster homePageMoviePoster"
               boxShadow={5}
             />

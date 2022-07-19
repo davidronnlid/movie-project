@@ -83,6 +83,7 @@ export const SingleMoviePage = ({ match }) => {
               src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
               alt="Primary movie poster"
               className="primaryMovPoster"
+              loading="lazy"
               style={{
                 borderBottomLeftRadius: smallScreen ? '1rem' : 0,
                 borderBottomRightRadius: smallScreen ? '1rem' : 0,
@@ -109,6 +110,7 @@ export const SingleMoviePage = ({ match }) => {
               src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
               alt="Secondary movie poster"
               className="secondaryMovieImg"
+              loading="lazy"
               style={{
                 borderBottomLeftRadius: smallScreen ? '1rem' : 0,
                 borderBottomRightRadius: smallScreen ? '1rem' : 0,
