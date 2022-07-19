@@ -55,16 +55,7 @@ export const SingleMoviePage = ({ match }) => {
           sx={{ fontSize: smallScreen ? '8vw' : '5vw' }}
         />
       </Link>
-      <Box
-        className="singleMovBoxContainer"
-        sx={{
-          borderBottomLeftRadius: smallScreen ? '1rem' : 0,
-          borderBottomRightRadius: smallScreen ? '1rem' : 0,
-          borderTopLeftRadius: '1rem',
-          borderTopRightRadius: '1rem',
-          boxShadow: 3,
-        }}
-      >
+      <Box className="singleMovBoxContainer">
         <Grid container spacing={2} className="singleMovGridContainer">
           <Grid item sm={12} sx={{ width: '100%' }}>
             <Typography
@@ -73,7 +64,10 @@ export const SingleMoviePage = ({ match }) => {
                 background: 'var(--second-color)',
                 color: 'var(--third-color)',
                 fontFamily: "'Roboto Condensed', sans-serif",
+                borderTopLeftRadius: '0.5rem',
+                borderTopRightRadius: '0.5rem',
                 p: 2,
+                boxShadow: 3,
               }}
             >
               {movie.title}
@@ -85,17 +79,12 @@ export const SingleMoviePage = ({ match }) => {
               alt="Primary movie poster"
               className="primaryMovPoster"
               effect="blur"
-              style={{
-                borderBottomLeftRadius: smallScreen ? '1rem' : 0,
-                borderBottomRightRadius: smallScreen ? '1rem' : 0,
-                height: '100%',
-              }}
             />
           </Grid>
           <Grid item sm={6}>
             <Typography
               variant="body1"
-              sx={{ p: 2, pl: smallScreen ? '1rem' : 0 }}
+              sx={{ px: 2, pl: smallScreen ? '1rem' : 0 }}
             >
               <b>Language:</b> {movie.original_language.toUpperCase()}
               <br /> <b>Release date:</b> {movie.release_date} <br />
@@ -104,19 +93,15 @@ export const SingleMoviePage = ({ match }) => {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ p: 2, pl: smallScreen ? '1rem' : 0 }}
+              sx={{ px: 2, pl: smallScreen ? '1rem' : 0, my: 3 }}
             >
               <b>Overview:</b> {movie.overview}
             </Typography>
             <LazyLoadImage
               src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
               alt="Secondary movie poster"
-              className="secondaryMovieImg"
+              className="secondaryMovPoster"
               effect="blur"
-              style={{
-                borderBottomLeftRadius: smallScreen ? '1rem' : 0,
-                borderBottomRightRadius: smallScreen ? '1rem' : 0,
-              }}
             />
           </Grid>
         </Grid>

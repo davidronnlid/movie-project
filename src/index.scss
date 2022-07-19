@@ -4,7 +4,7 @@
   --first-color: #173d52;
   --second-color: #e0e0e0;
   --third-color: #0d2430;
-  --fourth-color: #d2904f;
+  --fourth-color: #1976d2;
   --second-color-rgb: 211 232 243;
 
   --std-bs: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
@@ -12,7 +12,7 @@
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
   --text-color: var(--second-color);
-  --buton-color: #1976d2;
+  --buton-color: var(--fourth-color);
 }
 
 body {

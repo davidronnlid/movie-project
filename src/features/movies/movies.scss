@@ -12,7 +12,7 @@
   position: relative;
   top: 0;
   z-index: -2;
-  width: 100%;
+  width: 100vw;
 }
 .mostPopMovPrimaryPoster {
   position: absolute;
@@ -66,7 +66,6 @@
 }
 
 .singleMovBoxContainer {
-    background: var(--third-color);
     color: var(--text-color);
     width: 80vw;
     margin: 4rem auto;
@@ -74,10 +73,13 @@
 
 .primaryMovPoster {
   width: 100%;
+  box-shadow: var(--std-bs);
 }
 
-.secondaryMovieImg {
+.secondaryMovPoster {
   width: 100%;
+  box-shadow: var(--std-bs);
+
 }
 
 .flickityCarousel {
