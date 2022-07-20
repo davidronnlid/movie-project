@@ -22,9 +22,9 @@
   width: 22vw;
   border: 3px solid rgba(211, 232, 243, 1);
   border-radius: 0.3rem;
-  box-shadow: rgba(211, 232, 243, 0.5) 0px 3px 6px, rgb(211, 232, 243, 0.5) 0px 3px 6px;
+  box-shadow: rgba(211, 232, 243, 0.5) 0px 3px 6px,
+    rgb(211, 232, 243, 0.5) 0px 3px 6px;
 }
-
 
 .mostPopMovLink {
   text-decoration: none;
@@ -33,6 +33,7 @@
 .homePageMoviePoster {
   transition: transform 290ms !important;
   border-radius: 0.3rem;
+  box-shadow: var(--std-bs);
 
   &:hover {
     transform: scale(1.02, 1.02);
@@ -40,7 +41,7 @@
   }
 }
 
-.movieListContainer{
+.movieListContainer {
   width: 80vw;
   margin: 0 auto;
 
@@ -60,9 +61,9 @@
 
 // Single Movie Page
 .singleMovBoxContainer {
-    color: var(--text-color);
-    width: 80vw;
-    margin: 4rem auto;
+  color: var(--text-color);
+  width: 80vw;
+  margin: 4rem auto;
 }
 
 .primaryMovPoster {
@@ -73,7 +74,6 @@
 .secondaryMovPoster {
   width: 100%;
   box-shadow: var(--std-bs);
-
 }
 
 .flickityCarousel {

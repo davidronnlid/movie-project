@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../redux/reduxHooks'
 import { Link } from 'react-router-dom'
 import {
   selectAllMovies,
@@ -14,8 +14,11 @@ import '../movies.scss'
 import { Typography } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MovieProps } from '../../types/movieTypes'
 
-const MostPopularMovie = ({ movie }) => {
+const MostPopularMovie = (props: { movie: MovieProps }) => {
+  const movie = props.movie
+
   return (
     <Grid item xs={12}>
       <Box className="mostPopMovContainer">
@@ -66,8 +69,9 @@ const MostPopularMovie = ({ movie }) => {
   )
 }
 
-const MovieInList = ({ movie, mostPopular }) => {
-  console.log('MovieInList component log', movie, mostPopular)
+const MovieInList = (props: { movie: MovieProps; mostPopular: boolean }) => {
+  const movie = props.movie
+  const mostPopular = props.mostPopular
 
   return (
     <>
@@ -82,7 +86,6 @@ const MovieInList = ({ movie, mostPopular }) => {
               alt="Movie poster"
               loading="lazy"
               className="moviePoster homePageMoviePoster"
-              boxShadow={5}
             />
           </Link>
         </Grid>
@@ -92,12 +95,12 @@ const MovieInList = ({ movie, mostPopular }) => {
 }
 
 export const MoviesList = () => {
-  const dispatch = useDispatch()
-  const movies = useSelector(selectAllMovies)
+  const dispatch = useAppDispatch()
+  const movies = useAppSelector(selectAllMovies)
 
-  const movieStatus = useSelector((state) => state.movies.status)
-  const error = useSelector((state) => state.movies.error)
-  const highestPopularity = useSelector(selectHighestPopularity)
+  const movieStatus = useAppSelector((state) => state.movies.status)
+  const error = useAppSelector((state) => state.movies.error)
+  const highestPopularity = useAppSelector(selectHighestPopularity)
 
   const smallScreen = useMediaQuery('(min-width:600px)')
 
@@ -109,12 +112,10 @@ export const MoviesList = () => {
 
   return (
     <Box className="movieListContainer">
-      {movieStatus === 'loading' ? <Spinner text="Loading..." /> : null}
-      {movieStatus === 'failed' ? (
-        <div>{console.log(error) && error}</div>
-      ) : null}
+      {movieStatus === 'loading' ? <Spinner /> : null}
+      {movieStatus === 'failed' ? <div>{error}</div> : null}
       <Grid container spacing={smallScreen ? 8 : 5}>
-        {movies.map((movie) =>
+        {movies.map((movie: MovieProps) =>
           highestPopularity === movie.popularity ? (
             <MovieInList key={movie.id} movie={movie} mostPopular={true} />
           ) : (

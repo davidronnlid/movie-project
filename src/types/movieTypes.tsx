@@ -1,4 +1,4 @@
-export type MovieProps = {
+export interface MovieProps {
   adult: Boolean
   backdrop_path: string
   genre_ids: Array<number> | number
@@ -15,6 +15,6 @@ export type MovieProps = {
   vote_count: number
 }
 
-export type MoviesProps = {
+export interface MoviesProps {
   [index: string]: Array<MovieProps>
 }

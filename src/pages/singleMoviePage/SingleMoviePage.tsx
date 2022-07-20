@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../redux/reduxHooks'
 import ErrorMessage from '../../components/errorMessage'
 import {
   selectMovieById,
@@ -14,18 +14,18 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const MoviesCarousel = lazy(() => import('../../components/moviesCarousel'))
 
-export const SingleMoviePage = ({ match }) => {
-  const { movieId } = match.params
+export const SingleMoviePage = (props: { match: any }) => {
+  const { movieId } = props.match.params
 
-  const movie = useSelector((state) => selectMovieById(state, movieId))
-  const error = useSelector((state) => state.movies.error)
-  const movies = useSelector(selectAllMovies)
+  const movie = useAppSelector((state) => selectMovieById(state, movieId))
+  const error = useAppSelector((state) => state.movies.error)
+  const movies = useAppSelector(selectAllMovies)
 
   const smallScreen = useMediaQuery('(max-width:600px)')
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
-  const movieStatus = useSelector((state) => state.movies.status)
+  const movieStatus = useAppSelector((state) => state.movies.status)
   const pageOfThisMovieInAPI = 0
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const SingleMoviePage = ({ match }) => {
   }, [movieStatus, dispatch])
 
   if (!movie || movieStatus === 'loading') {
-    return <Spinner text="Loading..." />
+    return <Spinner />
   }
 
   if (movieStatus === 'failed') {
@@ -114,7 +114,7 @@ export const SingleMoviePage = ({ match }) => {
       >
         Other popular movies:
       </Typography>{' '}
-      <Suspense fallback={<Spinner text="Loading..." />}>
+      <Suspense fallback={<Spinner />}>
         <MoviesCarousel movies={movies} />
       </Suspense>
     </>
