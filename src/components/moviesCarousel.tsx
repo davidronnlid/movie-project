@@ -12,7 +12,7 @@ const flickityOptions = {
   prevNextButtons: false,
 }
 
-export default function MoviesCarousel(movies: MoviesProps) {
+export default function MoviesCarousel(moviesState: MoviesProps) {
   return (
     <Flickity
       elementType={'div'} // default 'div'
@@ -22,7 +22,7 @@ export default function MoviesCarousel(movies: MoviesProps) {
       reloadOnUpdate // default false
       static // default false
     >
-      {movies.movies.map((movie) => (
+      {moviesState.movies.map((movie) => (
         <Link to={`/movies/${movie.id}`}>
           <img
             src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}

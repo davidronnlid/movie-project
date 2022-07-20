@@ -19,7 +19,7 @@ export const SingleMoviePage = (props: { match: any }) => {
 
   const movie = useAppSelector((state) => selectMovieById(state, movieId))
   const error = useAppSelector((state) => state.movies.error)
-  const movies = useAppSelector(selectAllMovies)
+  const moviesState = useAppSelector(selectAllMovies)
 
   const smallScreen = useMediaQuery('(max-width:600px)')
 
@@ -27,6 +27,7 @@ export const SingleMoviePage = (props: { match: any }) => {
 
   const movieStatus = useAppSelector((state) => state.movies.status)
   const pageOfThisMovieInAPI = 0
+  // This should ideally be in the components state since it can in theory vary, but it wasn't considered important enough to implement this and its dependencies for spending time on considering the goals of this project.
 
   useEffect(() => {
     if (movieStatus === 'idle') {
@@ -115,7 +116,7 @@ export const SingleMoviePage = (props: { match: any }) => {
         Other popular movies:
       </Typography>{' '}
       <Suspense fallback={<Spinner />}>
-        <MoviesCarousel movies={movies} />
+        <MoviesCarousel movies={moviesState} />
       </Suspense>
     </>
   )

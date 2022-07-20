@@ -34,7 +34,7 @@ export const fetchMovies = createAsyncThunk(
         a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
     )
 
-    // Sort movies by popularity prop
+    // Sort movies by popularity (most popular first). It is supposed to already be sorted in API but it has turned out not to always have been so, leading to downstream bugs.
   }
 )
 
@@ -52,7 +52,7 @@ const moviesSlice = createSlice({
         (state, action: PayloadAction<MoviesProps>) => {
           state.status = 'succeeded'
 
-          // Add any fetched movies to the array
+          // Add any fetched movies to movie array
           state.moviesState = state.moviesState.concat(action.payload)
         }
       )
@@ -77,3 +77,4 @@ export const selectHighestPopularity = (state: RootState) =>
     null,
     state.movies.moviesState.map((movie: MovieProps) => movie.popularity)
   )
+// Returns value of popularity prop for most popular movie. Not the movie itself
