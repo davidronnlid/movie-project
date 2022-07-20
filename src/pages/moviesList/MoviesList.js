@@ -15,7 +15,7 @@ import { Typography } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-const MostPopularMovie = (movie) => {
+const MostPopularMovie = ({ movie }) => {
   return (
     <Grid item xs={12}>
       <Box className="mostPopMovContainer">
