@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { MoviesList } from './features/movies/MoviesList'
-import { SingleMoviePage } from './features/movies/SingleMoviePage'
-import ErrorMessage from './components/ErrorMessage'
+import { MoviesList } from './pages/moviesList/MoviesList'
+import { SingleMoviePage } from './pages/singleMoviePage/SingleMoviePage'
+import ErrorMessage from './components/errorMessage'
 import Footer from './components/footer'
 import BackToTop from './components/topScroll'
 import {
@@ -21,9 +21,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <HideAppBar />
-        <span id="back-to-top-anchor"></span>
-
+        <HideAppBar children={<></>} /> <span id="back-to-top-anchor"></span>
         <Switch>
           <Route
             exact
@@ -37,8 +35,7 @@ function App() {
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
           <Route path="*" component={ErrorMessage} />
         </Switch>
-        <BackToTop />
-        <Footer />
+        <BackToTop children={<></>} /> <Footer />
       </Router>
     </ThemeProvider>
   )

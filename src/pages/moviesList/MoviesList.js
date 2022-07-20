@@ -5,18 +5,17 @@ import {
   selectAllMovies,
   selectHighestPopularity,
   fetchMovies,
-} from './moviesSlice'
-import Spinner from '../../components/Spinner.tsx'
+} from '../../redux/moviesSlice'
+import Spinner from '../../components/Spinner'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import './movies.scss'
+import '../movies.scss'
 import { Typography } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-const MostPopularMovie = ({ movie }) => {
-  console.log(movie, '/most pop..')
+const MostPopularMovie = (movie) => {
   return (
     <Grid item xs={12}>
       <Box className="mostPopMovContainer">

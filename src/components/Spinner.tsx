@@ -1,15 +1,11 @@
-import { Typography } from '@mui/material'
-import React from 'react'
 import './Spinner.scss'
 
-const Spinner = ({ text = '', size = '5em' }) => {
-  const header = text ? <Typography variant="h4" color="var(--text-color)" >{text}</Typography> : null
+const Spinner = () => {
   return (
     <div className="spinner">
-      {header}
-      <div className="loader" style={{ height: size, width: size }} />
+      <div className="loader" />
     </div>
   )
 }
 
-export default Spinner;
+export default Spinner
