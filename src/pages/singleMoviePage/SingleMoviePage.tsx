@@ -85,7 +85,7 @@ export const SingleMoviePage = (props: { match: any }) => {
             >
               <b>Language:</b> {movie.original_language.toUpperCase()}
               <br /> <b>Release date:</b> {movie.release_date} <br />
-              <b>No. of ratings:</b> {movie.vote_count}
+              <b>Number of ratings:</b> {movie.vote_count}
               <br /> <b>Average rating:</b> {movie.vote_average} / 10
             </Typography>
             <Typography
