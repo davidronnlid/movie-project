@@ -18,6 +18,7 @@ export const SingleMoviePage = (props: { match: any }) => {
   const { movieId } = props.match.params
 
   const movie = useAppSelector((state) => selectMovieById(state, movieId))
+  const movieStatus = useAppSelector((state) => state.movies.status)
   const error = useAppSelector((state) => state.movies.error)
   const moviesState = useAppSelector(selectAllMovies)
 
@@ -25,9 +26,8 @@ export const SingleMoviePage = (props: { match: any }) => {
 
   const dispatch = useAppDispatch()
 
-  const movieStatus = useAppSelector((state) => state.movies.status)
   const pageOfThisMovieInAPI = 0
-  // This should ideally be in the components state since it can in theory vary, but it wasn't considered important enough to implement this and its dependencies for spending time on considering the goals of this project.
+  // pageOfThisMovieInAPI should ideally be in the components state since it can in theory vary, but it wasn't considered important enough to implement this and the  dependencies that would be needed for it. Considering the goals of this project, this suboptimal solution was consciously left in.
 
   useEffect(() => {
     if (movieStatus === 'idle') {

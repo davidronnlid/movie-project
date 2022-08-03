@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
-
 :root {
   --first-color: #173d52;
   --second-color: #e0e0e0;
@@ -19,27 +18,15 @@
 
 body {
   width: 100vw;
-  height: 100vw;
-  overflow-x: hidden;  
+  height: 100vh;
+  overflow-x: hidden;
   margin: 0;
   background-color: var(--first-color);
 }
 
-.footerIcon {
-  width: 100%;
-  margin-top: 0;
-  text-align: left;
-}
-
-.Mui-selected, .MuiBottomNavigationAction-label	 {
-  color: var(--text-color);
-  text-align: left;
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-.dRSC {
-  width: 114%;
+.appBody {
+  width: 100vw;
+  height: 100vh;
 }
 
 #back-to-top-anchor {

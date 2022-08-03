@@ -13,6 +13,7 @@ import {
 import HideAppBar from './components/header'
 
 import 'react-lazy-load-image-component/src/effects/blur.css'
+import Box from '@mui/material/Box'
 
 function App() {
   let theme = createTheme()
@@ -20,8 +21,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <span id="back-to-top-anchor"></span>
       <Router>
-        <HideAppBar children={<></>} /> <span id="back-to-top-anchor"></span>
+        <HideAppBar children={<></>} />
         <Switch>
           <Route
             exact
@@ -35,8 +37,9 @@ function App() {
           <Route exact path="/movies/:movieId" component={SingleMoviePage} />
           <Route path="*" component={ErrorMessage} />
         </Switch>
-        <BackToTop children={<></>} /> <Footer />
+        <BackToTop children={<></>} />
       </Router>
+      <Footer />
     </ThemeProvider>
   )
 }

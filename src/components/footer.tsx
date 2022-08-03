@@ -6,6 +6,7 @@ import Tooltip from '@mui/material/Tooltip'
 import Link from '@mui/material/Link'
 import DRConfTransparent from '../images/drConfTransparent.png'
 import TMDB from '../images/tmdb.png'
+import './footer.scss'
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = useState('TMDB Credits')
