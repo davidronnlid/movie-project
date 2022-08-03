@@ -13,7 +13,6 @@ import {
 import HideAppBar from './components/header'
 
 import 'react-lazy-load-image-component/src/effects/blur.css'
-import Box from '@mui/material/Box'
 
 function App() {
   let theme = createTheme()
