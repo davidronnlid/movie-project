@@ -1,23 +1,26 @@
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
 import { MovieProps } from '../../types/movieTypes'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
 const MostPopularMovie = (props: { movie: MovieProps }) => {
   const movie = props.movie
+  const theme = useTheme()
+  const mediumScreen = useMediaQuery(theme.breakpoints.up('md'))
 
   return (
-    <Grid item xs={12}>
+    <>
       <Box className="mostPopMovContainer">
-        <LazyLoadImage
-          className="mostPopMovSecondaryPoster"
-          alt="Secondary movie poster"
-          effect="blur"
-          loading="lazy"
-          src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
-        />
+        <div className="mostPopMovSecondaryPosterOverlay">
+          <img
+            className="mostPopMovSecondaryPoster"
+            alt="Secondary movie poster"
+            loading="lazy"
+            src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+          />
+        </div>
         <Link to={`/movies/${movie.id}`} className="mostPopMovLink ">
           {' '}
           <Box sx={{ boxShadow: 3 }}>
@@ -29,32 +32,38 @@ const MostPopularMovie = (props: { movie: MovieProps }) => {
             />
           </Box>
         </Link>
-      </Box>{' '}
-      <Typography
-        variant="h6"
-        sx={{
-          fontFamily: "'Caveat', cursive",
-          p: 3,
-          pl: 0.3,
-          color: 'var(--text-color)',
-        }}
-      >
-        ... is currently the most popular movie! &#128192;
-      </Typography>
-      <Typography
-        variant="h2"
-        sx={{
-          mb: -3,
-          background: 'var(--third-color)',
-          color: 'var(--text-color)',
-          p: 3,
-          borderRadius: '0.3rem',
-          fontFamily: "'Roboto Condensed', sans-serif",
-        }}
-      >
-        Other currently popular movies
-      </Typography>
-    </Grid>
+        <Box className="mostPopMovDescriptionInfo">
+          <Typography
+            variant="h3"
+            sx={{
+              fontFamily: "'Roboto condensed', sans-serif",
+              fontWeight: '500',
+
+              pb: 0,
+              mb: 1,
+              pl: 0.3,
+              color: 'var(--text-color)',
+            }}
+          >
+            <span className="mostPopMovTitle">{movie.title}</span> is currently
+            the most popular movie! &#128192;
+          </Typography>
+
+          {mediumScreen ? (
+            <Typography
+              variant="body1"
+              sx={{
+                fontFamily: "'Roboto condensed', sans-serif",
+                pl: 0.3,
+                color: 'var(--text-color)',
+              }}
+            >
+              {movie.overview}
+            </Typography>
+          ) : null}
+        </Box>
+      </Box>
+    </>
   )
 }
 

@@ -1,11 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
 
 /* movies list */
 .mostPopMovContainer {
   position: relative;
   left: -10vw;
   width: 100vw;
+}
+
+.mostPopMovSecondaryPosterOverlay {
+  background: -moz-linear-gradient(
+    356deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.19681375968356096) 34%
+  );
+  background: -webkit-linear-gradient(
+    356deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.19681375968356096) 34%
+  );
+  background: linear-gradient(
+    356deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.19681375968356096) 34%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
 }
 
 .mostPopMovSecondaryPoster {
@@ -17,13 +37,48 @@
 .mostPopMovPrimaryPoster {
   position: absolute;
   overflow-x: hidden;
-  bottom: 3vh;
+  top: 19vw;
   left: 5vw;
   width: 22vw;
   border: 3px solid rgba(211, 232, 243, 1);
   border-radius: 0.3rem;
   box-shadow: rgba(211, 232, 243, 0.5) 0px 3px 6px,
     rgb(211, 232, 243, 0.5) 0px 3px 6px;
+}
+
+.mostPopMovDescriptionInfo {
+  position: absolute;
+  overflow-x: hidden;
+  top: 46vw;
+  left: 30vw;
+  width: 60vw;
+  padding: 0.5rem;
+  letter-spacing: -0.5px;
+  background: rgb(23, 61, 82);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(23, 61, 82, 0.7122199221485469) 28%,
+    rgba(23, 61, 82, 0.8998949921765581) 49%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(23, 61, 82, 0.7122199221485469) 28%,
+    rgba(23, 61, 82, 0.8998949921765581) 49%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(23, 61, 82, 0.7122199221485469) 28%,
+    rgba(23, 61, 82, 0.8998949921765581) 49%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#173d52",endColorstr="#173d52",GradientType=1);
+
+  border-radius: 1rem 1rem 0 0;
+
+  & .mostPopMovTitle {
+    font-family: 'Roboto condensed', sans-serif;
+    color: var(--text-color);
+    font-weight: 800;
+  }
 }
 
 .mostPopMovLink {
@@ -78,7 +133,6 @@
   border: none;
   box-shadow: none;
   padding-bottom: 3rem;
-  background-color: var(--text-color);
 }
 
 .flickityCarousel a img {

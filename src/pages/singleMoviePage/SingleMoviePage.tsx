@@ -56,15 +56,11 @@ export const SingleMoviePage = (props: { match: any }) => {
         <Grid container spacing={2} className="singleMovGridContainer">
           <Grid item sm={12} sx={{ width: '100%' }}>
             <Typography
-              variant="h3"
+              variant="h2"
               sx={{
-                background: 'var(--second-color)',
-                color: 'var(--third-color)',
-                fontFamily: "'Roboto Condensed', sans-serif",
-                borderTopLeftRadius: '0.5rem',
-                borderTopRightRadius: '0.5rem',
-                p: 2,
-                boxShadow: 3,
+                color: 'var(--text-color)',
+                fontFamily: "'Roboto condensed', sans-serif",
+                my: '2vw',
               }}
             >
               {movie.title}
@@ -83,16 +79,16 @@ export const SingleMoviePage = (props: { match: any }) => {
               variant="body1"
               sx={{ px: 2, pl: smallScreen ? '1rem' : 0 }}
             >
-              <b>Language:</b> {movie.original_language.toUpperCase()}
-              <br /> <b>Release date:</b> {movie.release_date} <br />
-              <b>Number of ratings:</b> {movie.vote_count}
-              <br /> <b>Average rating:</b> {movie.vote_average} / 10
+              <strong>Language:</strong> {movie.original_language.toUpperCase()}
+              <br /> <strong>Release date:</strong> {movie.release_date} <br />
+              <strong>Number of ratings:</strong> {movie.vote_count}
+              <br /> <strong>Average rating:</strong> {movie.vote_average} / 10
             </Typography>
             <Typography
               variant="body1"
               sx={{ px: 2, pl: smallScreen ? '1rem' : 0, my: 3 }}
             >
-              <b>Overview:</b> {movie.overview}
+              <strong>Overview:</strong> {movie.overview}
             </Typography>
             <LazyLoadImage
               src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
@@ -106,11 +102,9 @@ export const SingleMoviePage = (props: { match: any }) => {
       <Typography
         variant="h4"
         sx={{
-          color: 'var(--third-color)',
-          background: 'var(--second-color)',
+          color: 'var(--text-color)',
           paddingLeft: '10vw',
           py: 3,
-          boxShadow: '0px -4px 3px rgb(50 50 50 / 75%)',
         }}
       >
         Other popular movies:

@@ -31,11 +31,11 @@ export default function HideAppBar(props: Props) {
         <AppBar sx={{ background: 'var(--third-color)' }}>
           <Link to="/" style={{ textDecoration: 'none', marginLeft: '5vw' }}>
             <Typography
-              variant="h2"
+              variant="h1"
               component="div"
               sx={{
                 color: 'var(--text-color)',
-                fontFamily: "'Kanit', sans-serif",
+                fontFamily: "'Roboto condensed', sans-serif",
                 py: 2,
               }}
             >

@@ -5,21 +5,14 @@ import { SingleMoviePage } from './pages/singleMoviePage/SingleMoviePage'
 import ErrorMessage from './components/errorMessage'
 import Footer from './components/footer'
 import BackToTop from './components/topScroll'
-import {
-  createTheme,
-  ThemeProvider,
-  responsiveFontSizes,
-} from '@mui/material/styles'
+import FontTheme from './components/fontTheme'
 import HideAppBar from './components/header'
 
 import 'react-lazy-load-image-component/src/effects/blur.css'
 
 function App() {
-  let theme = createTheme()
-  theme = responsiveFontSizes(theme)
-
   return (
-    <ThemeProvider theme={theme}>
+    <FontTheme>
       <span id="back-to-top-anchor"></span>
       <Router>
         <HideAppBar children={<></>} />
@@ -39,7 +32,7 @@ function App() {
         <BackToTop children={<></>} />
       </Router>
       <Footer />
-    </ThemeProvider>
+    </FontTheme>
   )
 }
 
